@@ -5,7 +5,7 @@
   "homepage": "https://vlad2000j.github.io/project_13",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /project_13/"
+    "build": "parcel build src/*.html --public-url /project_13/"  
   },
   "repository": {
     "type": "git",
