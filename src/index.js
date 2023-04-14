@@ -2,8 +2,11 @@ import './js/vars';
 import ApiService from './js/api-service';
 
 myService = new ApiService();
-myService.query = 'Titanic';
+myService.query = 'Titanic'; // Пошуковий запит
 myService.page = 2; // Номер сторінки
+
+// Для картотеки фільмів
+
 async function cardsMarkup() {
   const movieData = await myService.getMoviesData();
   if (!movieData.movies.length) {
