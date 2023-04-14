@@ -1,5 +1,4 @@
 /* fonts */
-$main-font: 'Roboto', sans-serif;
 
 /* color*/
 $black-text-cl: #000000;
@@ -112,10 +111,7 @@ $cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
       line-height: 1.2;
     }
   }
-  // &__card-text {
-  //   display: flex;
-  //   gap: 5px;
-  // }
+
   &__card-genres {
     font-size: 12px;
     line-height: 1.17;
@@ -126,35 +122,6 @@ $cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     @media screen and (min-width: $desktop) {
       font-size: 20px;
       line-height: 1.2;
-    }
-  }
-  &__card-rating {
-    width: 36px;
-    height: 16px;
-    padding: 1px 10px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 1.17;
-    background-color: $accent-text-cl;
-    // color: $white-text-cl;
-    color: $accent-text-cl;
-    border-radius: 5px;
-    @media screen and (min-width: $desktop) {
-      align-self: flex-end;
-      width: 40px;
-      height: 20px;
-      padding: 3px 12px;
-    }
-  }
-  .movies--padding {
-    padding-bottom: 200px;
-
-    @media screen and (min-width: $tablet) {
-      padding-bottom: 150px;
-    }
-
-    @media screen and (min-width: $desktop) {
-      padding-bottom: 135px;
     }
   }
 }

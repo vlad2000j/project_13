@@ -1,7 +1,7 @@
 import axios from 'axios';
 export { getPopularMovies, getGanres, BASE_URL, API_KEY, fetchById, onKeyWord };
 const BASE_URL = 'https://api.themoviedb.org/3/';
-const API_KEY = 'ea5def047bf208a64f0c5de401ac8330';
+const API_KEY = '2ac41627e60ee28ce7ee19eda978da51';
 const getPopularMovies = async page => {
   return await axios.get(
     `${BASE_URL}trending/movie/day?api_key=${API_KEY}&page=${page}`
