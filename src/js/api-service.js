@@ -83,7 +83,19 @@ export default class ApiService {
   }
 }
 // ----------------------------------------------------------------------------
+// Метод getMoviesData() вповертає об'єкт з наступними полями
+// genres_names --- масив з переліком жанрів (для картки)
+// title --- назва фільму
+// poster_url --- адреса для постера
+// release_year --- рік виходу фільму
+// backdrop_pat --- беудроп для модалки
+// overvie --- опис фільму (для модалки)
+// popularity --- популярність (для модалки)
+// original_title --- оришінальна назва (для модалки)
+// vote_average --- середній рейтинг (для модалки)
+// vote_count --- кількість голосів (для модалки)
 
+// Функція для перетворення масиву ids жанрів в масив імен жанрів
 function getGenresByIds(genres, ids) {
   return genres
     .filter(genre => ids.includes(genre.id))
