@@ -88,7 +88,7 @@ export default class ApiService {
 // title --- назва фільму
 // poster_url --- адреса для постера
 // release_year --- рік виходу фільму
-// backdrop_pat --- беудроп для модалки
+// backdrop_path --- беудроп для модалки
 // overvie --- опис фільму (для модалки)
 // popularity --- популярність (для модалки)
 // original_title --- оришінальна назва (для модалки)
