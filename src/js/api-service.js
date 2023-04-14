@@ -42,11 +42,33 @@ export default class ApiService {
 
       const movies = [];
       for (const obj of response.data.results) {
-        const { genre_ids, title, poster_path, release_date } = obj;
+        const {
+          genre_ids,
+          title,
+          poster_path,
+          release_date,
+          backdrop_path,
+          overview,
+          popularity,
+          original_title,
+          vote_average,
+          vote_count,
+        } = obj;
         const poster_url = `https://image.tmdb.org/t/p/original/${poster_path}`;
         const genres_names = getGenresByIds(genres, genre_ids);
         const release_year = release_date.slice(0, 4);
-        const new_obj = { genres_names, title, poster_url, release_year };
+        const new_obj = {
+          genres_names,
+          title,
+          poster_url,
+          release_year,
+          backdrop_path,
+          overview,
+          popularity,
+          original_title,
+          vote_average,
+          vote_count,
+        };
         movies.push(new_obj);
       }
       const data = {

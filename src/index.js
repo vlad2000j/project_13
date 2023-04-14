@@ -2,7 +2,7 @@ import './js/vars';
 import ApiService from './js/api-service';
 
 myService = new ApiService();
-myService.query = 'qergeg';
+myService.query = 'Titanic';
 myService.page = 2; // Номер сторінки
 async function cardsMarkup() {
   const movieData = await myService.getMoviesData();
@@ -16,7 +16,7 @@ async function cardsMarkup() {
       element =>
         `<div>
         <img src=${element.poster_url}/>
-        <p>${element.title}
+        <p>${element.title}</p>
         <p><span>${element.genres_names.join(', ')}</span> | <span>${
           element.release_year
         }</span></p>
