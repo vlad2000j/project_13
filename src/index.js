@@ -2,10 +2,14 @@ import './js/vars';
 import ApiService from './js/api-service';
 
 myService = new ApiService();
-myService.query = 'Dos';
-
+myService.query = 'qergeg';
+myService.page = 2; // Номер сторінки
 async function cardsMarkup() {
   const movieData = await myService.getMoviesData();
+  if (!movieData.movies.length) {
+    console.log('No such movies'); // Тут можна Notify, або якусь модалку
+    return;
+  }
   console.log(movieData.page);
   const movieCards = movieData.movies
     .map(

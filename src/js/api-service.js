@@ -37,22 +37,27 @@ export default class ApiService {
       },
     };
 
-    const response = await axios(config);
-    this.incrementPage();
-    const movies = [];
-    for (const obj of response.data.results) {
-      const { genre_ids, title, poster_path, release_date } = obj;
-      const poster_url = `https://image.tmdb.org/t/p/original/${poster_path}`;
-      const genres_names = getGenresByIds(genres, genre_ids);
-      const release_year = release_date.slice(0, 4);
-      const new_obj = { genres_names, title, poster_url, release_year };
-      movies.push(new_obj);
+    try {
+      const response = await axios(config);
+
+      const movies = [];
+      for (const obj of response.data.results) {
+        const { genre_ids, title, poster_path, release_date } = obj;
+        const poster_url = `https://image.tmdb.org/t/p/original/${poster_path}`;
+        const genres_names = getGenresByIds(genres, genre_ids);
+        const release_year = release_date.slice(0, 4);
+        const new_obj = { genres_names, title, poster_url, release_year };
+        movies.push(new_obj);
+      }
+      const data = {
+        page: response.data.page,
+        movies,
+      };
+      return data;
+    } catch {
+      console.log('Sonething wrong');
+      return;
     }
-    const data = {
-      page: response.data.page,
-      movies,
-    };
-    return data;
   }
 }
 // ----------------------------------------------------------------------------
