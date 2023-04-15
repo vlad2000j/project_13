@@ -1,6 +1,7 @@
 import './js/vars';
 import ApiService from './js/api-service';
-
+import './js/api/movies-api';
+import './js/movies';
 // myService = new ApiService();
 // myService.query = 'Titanic'; // Пошуковий запит
 // myService.page = 2; // Номер сторінки
