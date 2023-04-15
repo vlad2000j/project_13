@@ -43,6 +43,7 @@ export default class ApiService {
       const movies = [];
       for (const obj of response.data.results) {
         const {
+          id,
           genre_ids,
           title,
           poster_path,
@@ -58,6 +59,7 @@ export default class ApiService {
         const genres_names = getGenresByIds(genres, genre_ids);
         const release_year = release_date.slice(0, 4);
         const new_obj = {
+          id,
           genres_names,
           title,
           poster_url,
@@ -85,7 +87,7 @@ export default class ApiService {
 // ----------------------------------------------------------------------------
 // Метод getMoviesData() вповертає об'єкт з наступними полями:
 // page --- номер сторінки,
-// movies --- масив об'єктів з даними ро фільм.
+// movies --- масив об'єктів з даними про фільм.
 // Елементи масиву --- об'єкти мають наступні поля
 // ------------------------------------------------------
 // genres_names --- масив з переліком жанрів (для картки)
