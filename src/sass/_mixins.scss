@@ -1,9 +1,9 @@
 @mixin box {
-	display: block;
+  display: block;
   overflow: hidden;
   width: 100%;
-	box-sizing: border-box;
-	height: auto;
+  box-sizing: border-box;
+  height: auto;
 }
 
 @mixin flex-row {
@@ -14,4 +14,7 @@
 @mixin flex-column {
   display: flex;
   flex-direction: column;
+}
+@mixin flex-basis($indent, $item) {
+  flex-basis: calc((100% - #{$indent} * (#{$item} - 1)) / #{$item});
 }
