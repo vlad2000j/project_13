@@ -7,11 +7,11 @@ const getPopularMovies = async page => {
     `${BASE_URL}trending/movie/day?api_key=${API_KEY}&page=${page}`
   );
 };
-//Запит на масив жанрів
+// //Запит на масив жанрів
 const getGanres = async () => {
   return await axios.get(`${BASE_URL}genre/movie/list?api_key=${API_KEY}`);
 };
-// Запит на пошук даних фільмів ID
+// // Запит на пошук даних фільмів ID
 async function fetchById(id) {
   const responce = await fetch(`${BASE_URL}movie/${id}?api_key=${API_KEY}`);
   const data = await responce.json();
