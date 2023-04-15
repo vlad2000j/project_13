@@ -14,21 +14,22 @@
 // myQueue.removeFromQueue(123); // Видаляємо фільм з черги за id
 // myQueue.removeFromQueue(124); // Видаляємо фільм з черги за id
 // myQueue.setQueue({ id: 234, title: 'Іndiana Johnes' }); // Додаємо дані фільму в чергу
+// console.log(myQueue.getQueueById(235)); // Виводить в косоль за id
+// myQueue.removeFirstItemFromQueue(); // Видаляє перший елемент з чергм
+// console.log(myQueue.getFirstItemFromQueue()); // Показує перший елемент в черзі
 
 // ------------------- Реалізація класу QueueService --------------------------
 
 QUEUE = 'queue';
 export default class QueueService {
-  storage = localStorage.getItem(QUEUE);
-
   getAllQueue() {
-    if (this.storage) {
-      return JSON.parse(this.storage);
+    if (localStorage.getItem(QUEUE)) {
+      return JSON.parse(localStorage.getItem(QUEUE));
     }
   }
 
   setQueue(movie) {
-    if (this.storage) {
+    if (localStorage.getItem(QUEUE)) {
       // Читаємо з localStorage d movie
       const movies = this.getAllQueue();
       //Перевіряємо, чи є вже такий об'єкт в черзі
@@ -44,13 +45,23 @@ export default class QueueService {
   }
 
   getQueueById(id) {
-    if (this.storage) {
-      return this.getAllQueue().filter(e => e.id === id);
+    if (localStorage.getItem(QUEUE)) {
+      return this.getAllQueue().filter(e => e.id === id)[0];
+    }
+  }
+
+  getFirstItemFromQueue() {
+    return this.getAllQueue()[0];
+  }
+
+  removeFirstItemFromQueue() {
+    if (localStorage.getItem(QUEUE)) {
+      this.removeFromQueue(this.getFirstItemFromQueue().id);
     }
   }
 
   removeFromQueue(id) {
-    if (this.storage) {
+    if (localStorage.getItem(QUEUE)) {
       const newMovies = this.getAllQueue().filter(obj => obj.id !== id);
       localStorage.setItem(QUEUE, JSON.stringify(newMovies));
     }
