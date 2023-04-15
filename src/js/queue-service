@@ -1,0 +1,38 @@
+class QueueService {
+  QUEUE = 'queue';
+
+  setQueue(movie) {
+    if (localStorage.getItem(QUEUE)) {
+      // Читаємо з localStorage d movie
+      const movies = JSON.parse(localStorage.getItem(QUEUE));
+      // Додаємо об'єкт до масиву movies
+      movies.push(movie);
+      // Додаємо оновлений масив до localStorage
+      localStorage.setItem(QUEUE, JSON.stringify(movies));
+    }
+  }
+
+  getAllQueue() {
+    if (localStorage.getItem(QUEUE)) {
+      return JSON.parse(localStorage.getItem(QUEUE));
+    }
+  }
+
+  getQueueById(id) {
+    if (localStorage.getItem(QUEUE)) {
+      const movies = JSON.parse(localStorage.getItem(QUEUE));
+      return movies.filter(e => e.id === id);
+    }
+  }
+
+  removeFromQueue(id) {
+    if (localStorage.getItem(QUEUE)) {
+      const movies = JSON.parse(localStorage.getItem(QUEUE));
+      const newMovies = movies.filter(obj => obj.id !== id);
+      localStorage.setItem(QUEUE, JSON.stringify(newMovies));
+    }
+  }
+}
+
+myQueue = new QueueService();
+myQueue.setQueue({ id: 123, title: 'More' });
