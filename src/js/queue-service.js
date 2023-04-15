@@ -19,12 +19,18 @@
 
 QUEUE = 'queue';
 export default class QueueService {
-  notEmpty = localStorage.getItem(QUEUE);
+  storage = localStorage.getItem(QUEUE);
+
+  getAllQueue() {
+    if (this.storage) {
+      return JSON.parse(this.storage);
+    }
+  }
 
   setQueue(movie) {
-    if (this.notEmpty) {
+    if (this.storage) {
       // Читаємо з localStorage d movie
-      const movies = JSON.parse(localStorage.getItem(QUEUE));
+      const movies = this.getAllQueue();
       //Перевіряємо, чи є вже такий об'єкт в черзі
       if (!movies.some(obj => obj.id === movie.id)) {
         // Додаємо об'єкт до масиву movies
@@ -37,21 +43,14 @@ export default class QueueService {
     }
   }
 
-  getAllQueue() {
-    if (this.notEmpty) {
-      return JSON.parse(localStorage.getItem(QUEUE));
-    }
-  }
-
   getQueueById(id) {
-    if (this.notEmpty) {
-      // const movies = JSON.parse(localStorage.getItem(QUEUE));
+    if (this.storage) {
       return this.getAllQueue().filter(e => e.id === id);
     }
   }
 
   removeFromQueue(id) {
-    if (this.notEmpty) {
+    if (this.storage) {
       const newMovies = this.getAllQueue().filter(obj => obj.id !== id);
       localStorage.setItem(QUEUE, JSON.stringify(newMovies));
     }
