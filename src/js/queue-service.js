@@ -15,10 +15,14 @@
 // myQueue.removeFromQueue(124); // Видаляємо фільм з черги за id
 // myQueue.setQueue({ id: 234, title: 'Іndiana Johnes' }); // Додаємо дані фільму в чергу
 
+// ------------------- Реалізація класу QueueService --------------------------
+
 QUEUE = 'queue';
 export default class QueueService {
+  notEmpty = localStorage.getItem(QUEUE);
+
   setQueue(movie) {
-    if (localStorage.getItem(QUEUE)) {
+    if (this.notEmpty) {
       // Читаємо з localStorage d movie
       const movies = JSON.parse(localStorage.getItem(QUEUE));
       //Перевіряємо, чи є вже такий об'єкт в черзі
@@ -34,20 +38,20 @@ export default class QueueService {
   }
 
   getAllQueue() {
-    if (localStorage.getItem(QUEUE)) {
+    if (this.notEmpty) {
       return JSON.parse(localStorage.getItem(QUEUE));
     }
   }
 
   getQueueById(id) {
-    if (localStorage.getItem(QUEUE)) {
+    if (this.notEmpty) {
       // const movies = JSON.parse(localStorage.getItem(QUEUE));
       return this.getAllQueue().filter(e => e.id === id);
     }
   }
 
   removeFromQueue(id) {
-    if (localStorage.getItem(QUEUE)) {
+    if (this.notEmpty) {
       const newMovies = this.getAllQueue().filter(obj => obj.id !== id);
       localStorage.setItem(QUEUE, JSON.stringify(newMovies));
     }
