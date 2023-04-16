@@ -83,6 +83,20 @@ const markup = results => {
   return galleryConteiner.insertAdjacentHTML('beforeend', markup);
 };
 
+
+
+////////// Модалка
+
+
+
+
+
+////////////////modal end
+
+
+
+
+
 // Функція очистки галереї
 
 // const clearMarkup = () => {

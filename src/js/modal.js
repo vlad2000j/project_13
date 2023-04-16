@@ -1,54 +1,274 @@
-movieEl.addEventListener('click', () => openModal(movie.filmId))
-
-// Modal
-const modalEl = document.querySelector(".modal");
-
-async function openModal(id) {
-  const resp = await fetch(API_URL_MOVIE_DETAILS + id, {
-    headers: {
-      "Content-Type": "application/json",
-      "X-API-KEY": API_KEY,
-    },
-  });
-  const respData = await resp.json();
-  
-  modalEl.classList.add("modal--show");
-  document.body.classList.add("stop-scrolling");
-
-  modalEl.innerHTML = `
-    <div class="modal__card">
-      <img class="modal__movie-backdrop" src="${respData.posterUrl}" alt="">
-      <h2>
-        <span class="modal__movie-title">${respData.nameEn}</span>
-        <span class="modal__movie-release-year"> - ${respData.year}</span>
-      </h2>
-      <ul class="modal__movie-info">
-        <div class="loader"></div>
-        <li class="modal__movie-genre">Жанр - ${respData.genres.map((el) => `<span>${el.genre}</span>`)}</li>
-        ${respData.filmLength ? `<li class="modal__movie-runtime">Время - ${respData.filmLength} минут</li>` : ''}
-        <li >Сайт: <a class="modal__movie-site" href="${respData.webUrl}">${respData.webUrl}</a></li>
-        <li class="modal__movie-overview">Описание - ${respData.description}</li>
-      </ul>
-      <button type="button" class="modal__button-close">Закрыть</button>
-    </div>
-  `
-  const btnClose = document.querySelector(".modal__button-close");
-  btnClose.addEventListener("click", () => closeModal());
-}
-
-function closeModal() {
-  modalEl.classList.remove("modal--show");
-  document.body.classList.remove("stop-scrolling");
-}
-
-window.addEventListener("click", (e) => {
-  if (e.target === modalEl) {
-    closeModal();
-  }
-})
-
-window.addEventListener("keydown", (e) => {
-  if (e.keyCode === 27) {
-    closeModal();
-  }
-})
+// export { refs };
+// import { fetchById } from './movies-api-service';
+// import Notiflix, { Notify } from 'notiflix';
+// import * as basicLightbox from 'basiclightbox';
+// import 'basiclightbox/dist/basicLightbox.min.css';
+// import { fetchTrailer } from './trailer';
+// import { checkImg } from './movies';
+// const refs = {
+//   openModal: document.querySelector('.movies__list'),
+//   closeModalBtn: document.querySelector('.button-close'),
+//   backdrop: document.querySelector('.backdrop-movie'),
+//   movieCard: document.querySelector('.movie-card'),
+//   body: document.querySelector('[data-page]'),
+// };
+// const instance = basicLightbox.create(refs.backdrop, {
+//   onShow: instance => {},
+//   onClose: instance => {
+//     document.querySelector('.backdrop-movie').style.overflowY = 'scroll';
+//     refs.body.classList.remove('no-scroll');
+//   },
+// });
+// refs.openModal.addEventListener('click', searchIdforMovie);
+// //Отримуємо данні по id,після надходження даних грузим в модалку
+// async function searchIdforMovie(e) {
+//   if (e.target.nodeName === 'LI') {
+//     const idMovie = e.target.id;
+//     const response = await fetchById(idMovie);
+//     createMarkupMovieCardInModal(response);
+//   }
+//   if (
+//     e.target.nodeName === 'DIV' ||
+//     e.target.nodeName === 'IMG' ||
+//     e.target.nodeName === 'H2' ||
+//     e.target.nodeName === 'P'
+//   ) {
+//     const idMovie = e.target.parentElement.id;
+//     const response = await fetchById(idMovie);
+//     // берем ID клік idMovie
+//     createMarkupMovieCardInModal(response);
+//     instance.show();
+//     refs.closeModalBtn.addEventListener('click', closeModal);
+//     document.addEventListener('keydown', event => closeModalEscape(event));
+//     if (
+//       document.querySelector('.header__nav-link.active').textContent === 'Home'
+//     ) {
+//       document
+//         .querySelector(`[data-add="wathced"]`)
+//         .addEventListener('click', onAddToWatched);
+//       document
+//         .querySelector(`[data-add="queue"]`)
+//         .addEventListener('click', onAddToQueue);
+//     } else {
+//       document
+//         .querySelector(`[data-remove="wathced"]`)
+//         .addEventListener('click', onRemoveFromWatched);
+//       document
+//         .querySelector(`[data-remove="queue"]`)
+//         .addEventListener('click', onRemoveFromQueue);
+//     }
+//     const trailerButton = document.querySelector('.button-open-trailer');
+//     trailerButton.addEventListener(`click`, clickTrailer);
+//   }
+//   refs.body.classList.add('no-scroll');
+// }
+// function closeModal() {
+//   refs.body.classList.remove('no-scroll');
+//   instance.close(() => refs.body.classList.remove('no-scroll'));
+//   document.removeEventListener('keydown', event => closeModalEscape(event));
+// }
+// function closeModalEscape(event) {
+//   if (event.key !== 'Escape') {
+//     return;
+//   }
+//   closeModal();
+// }
+// function clickTrailer(event) {
+//   event.preventDefault();
+//   const filmIdToLS = document.querySelector(`[data-add="wathced"]`).dataset.id;
+//   fetchTrailer(filmIdToLS).then(data => {
+//     if (data.data.results.length > 0) {
+//       window.open(
+//         `https://www.youtube.com/watch?v=${data.data.results[0].key}`,
+//         '_blank'
+//       );
+//     } else {
+//       Notify.failure('Sorry, but there is no trailer for this movie');
+//     }
+//   });
+// }
+// function createMarkupMovieCardInModal({
+//   poster_path,
+//   original_title,
+//   title,
+//   vote_average,
+//   vote_count,
+//   genres,
+//   overview,
+//   popularity,
+//   id,
+// }) {
+//   const movieGenres = genres.map(({ name }) => name).join(', ');
+//   const markup = `<div class="movie-card">
+//   <div class="movie-card_request">
+//     <div class="movie-card_img-cover">
+//       <img
+//       class="movie-card_photo"
+//       src="${checkImg(poster_path)}"
+//       alt="${title}"
+//     />
+//       <button type="button" class="button-open-trailer"></button>
+//     </div>
+//   </div>
+//   <div class="movie-description">
+//     <h2 class="movie-title">${title}</h2>
+//     <table class="movie-table">
+//       <tbody>
+//         <tr class="movie-table_row">
+//           <td>
+//             <p class="movie-table_title">Vote/Votes</p>
+//           </td>
+//           <td>
+//             <p>
+//               <span class= "movie-table_vote"> <span class= "movie-table_vote_aver"> ${vote_average.toFixed(
+//                 1
+//               )} </span> / ${vote_count}</span>
+//             </p>
+//           </td>
+//         </tr>
+//         <tr class="movie-table_row">
+//           <td>
+//             <p class="movie-table_title">Popularity</p>
+//           </td>
+//           <td>
+//             <p>${popularity}</p>
+//           </td>
+//         </tr>
+//         <tr class="movie-table_row">
+//           <td>
+//             <p class="movie-table_title">Original Title</p>
+//           </td>
+//           <td>
+//              <p class="movie-table_title_ori">${original_title}</p>
+//           </td>
+//         </tr>
+//         <tr class="movie-table_row">
+//           <td>
+//             <p class="movie-table_title">Genre</p>
+//           </td>
+//           <td>
+//             <p>${movieGenres}</p>
+//           </td>
+//         </tr>
+//       </tbody>
+//     </table>
+//     <div class="movie-about_container">
+//     <h3 class="movie-about">About</h3>
+//     <p class="movie-about_text">${overview}</p>
+//   </div>
+//     <ul class="movie-list">
+//       <li class="movie-item">
+//         <button type="button" class="movie-item_button" data-id=${id} data-add="wathced">Add to watched</button>
+//       </li>
+//       <li class="movie-item">
+//         <button type="button" class="movie-item_button" data-id=${id} data-add="queue">Add to queue</button>
+//        </li>
+//     </ul>
+//   </div>
+// </div>`;
+//   const markupLibrary = `<div class="movie-card">
+//   <div class="movie-card_request">
+//     <div class="movie-card_img-cover">
+//       <img
+//       class="movie-card_photo"
+//       src="${checkImg(poster_path)}"
+//       alt="${title}"
+//     />
+//       <button type="button" class="button-open-trailer"></button>
+//     </div>
+//   </div>
+//   <div class="movie-description">
+//     <h2 class="movie-title">${title}</h2>
+//     <table class="movie-table">
+//       <tbody>
+//         <tr class="movie-table_row">
+//           <td>
+//             <p class="movie-table_title">Vote/Votes</p>
+//           </td>
+//           <td>
+//             <p>
+//               <span class= "movie-table_vote"> <span class= "movie-table_vote_aver"> ${vote_average.toFixed(
+//                 1
+//               )} </span> / ${vote_count}</span>
+//             </p>
+//           </td>
+//         </tr>
+//         <tr class="movie-table_row">
+//           <td>
+//             <p class="movie-table_title">Popularity</p>
+//           </td>
+//           <td>
+//             <p>${popularity}</p>
+//           </td>
+//         </tr>
+//         <tr class="movie-table_row">
+//           <td>
+//             <p class="movie-table_title">Original Title</p>
+//           </td>
+//           <td>
+//              <p class="movie-table_title_ori">${original_title}</p>
+//           </td>
+//         </tr>
+//         <tr class="movie-table_row">
+//           <td>
+//             <p class="movie-table_title">Genre</p>
+//           </td>
+//           <td>
+//             <p>${movieGenres}</p>
+//           </td>
+//         </tr>
+//       </tbody>
+//     </table>
+//     <div class="movie-about_container">
+//     <h3 class="movie-about">About</h3>
+//     <p class="movie-about_text">${overview}</p>
+//   </div>
+//     <ul class="movie-list">
+//             <li class="movie-item">
+//         <button type="button" class="movie-item_button hover" data-id=${id} data-remove="wathced">Remove from watched</button>
+//       </li>
+//       <li class="movie-item">
+//         <button type="button" class="movie-item_button hover" data-id=${id} data-remove="queue">Remove from queue</button>
+//        </li>
+//     </ul>
+//   </div>
+// </div>`;
+//   if (
+//     document.querySelector('.header__nav-link.active').textContent === 'Home'
+//   ) {
+//     refs.movieCard.innerHTML = markup;
+//   } else {
+//     refs.movieCard.innerHTML = markupLibrary;
+//   }
+// }
+// function onAddToWatched(e) {
+//   const filmIdToLS = document.querySelector(`[data-add="wathced"]`).dataset.id;
+//   const parsedWathcedFilms = JSON.parse(localStorage.getItem('WatchedFilms'));
+//   if (parsedWathcedFilms === null) {
+//     Notiflix.Report.success('', 'Film added to WATCHED');
+//     localStorage.setItem('WatchedFilms', JSON.stringify([filmIdToLS]));
+//   }
+//   if (parsedWathcedFilms.includes(filmIdToLS)) {
+//     Notiflix.Report.failure(
+//       '',
+//       'The movie has already been added to the list!'
+//     );
+//     return;
+//   }
+//   parsedWathcedFilms.push(filmIdToLS);
+//   Notiflix.Report.success('', 'Film added to WATCHED');
+//   localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
+// }
+// function onAddToQueue() {
+//   const filmIdToLS = document.querySelector(`[data-add="queue"]`).dataset.id;
+//   const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
+//   if (parsedQueueFilms === null) {
+//     localStorage.setItem('QueueFilms', JSON.stringify([filmIdToLS]));
+//   }
+//   if (parsedQueueFilms.includes(filmIdToLS)) {
+//     return Notiflix.Report.failure(
+//       '',
+//       'The movie has already been added to the queue!'
+//     );
+//   }
+// }
