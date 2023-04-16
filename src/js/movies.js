@@ -4,7 +4,10 @@ import {
   onKeyWord,
 } from './movies-api-service.js';
 import Notiflix from 'notiflix';
-// import { createPagi } from './pagination';
+import { createPagi } from './pagination_main';
+
+const galleryConteiner = document.querySelector('.movies__list');
+let page = 1;
 
 export {
   galleryConteiner,
@@ -14,8 +17,7 @@ export {
   checkImg,
 };
 
-const galleryConteiner = document.querySelector('.movies__list');
-let page = 1;
+
 async function createMoviesMarkup(page) {
   if (
     document.querySelector('.header__nav-link.active').textContent === 'Home'
@@ -37,7 +39,7 @@ getPopularMovies(page)
   .then(({ data }) => {
     createMoviesMarkup(page);
     const totalRes = data.total_results;
-    createPagi(totalRes);
+    createPage(totalRes);
   })
   .catch(error => console.log(error));
 
