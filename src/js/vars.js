@@ -1,6 +1,7 @@
 import Notiflix from 'notiflix';
 import axios from 'axios';
 import SimpleLightbox from 'simplelightbox';
+import * as basicLightbox from 'basiclightbox'
 
 // Ключ API
 const API_KEY = '2ac41627e60ee28ce7ee19eda978da51';
