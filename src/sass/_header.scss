@@ -218,7 +218,7 @@ header {
                 }
                 
             }
-            .library {
+            .library, .watched, .queue {
                 @include flex-row;
                 justify-content: center;
                 align-items: center;
