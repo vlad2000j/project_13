@@ -1,0 +1,64 @@
+.empty__library.is-hidden {
+  display: none;
+}
+.empty__library-text.is-hidden {
+  display: none;
+}
+
+.empty__library-text {
+  text-transform: uppercase;
+  text-align: center;
+  color: #56ff01;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.17;
+}
+
+@media screen and (min-width: 768px) {
+  .empty__library-text {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .empty__library-text {
+    font-size: 32px;
+    line-height: 1.19;
+  }
+}
+
+.empty__library {
+  width: 290px;
+  height: 193px;
+  margin-bottom: 10px;
+  background-image: url('../images/pexels-obregonia-d-toretto-290\ 193.jpg');
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.empty__library.is-hidden {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .empty__library {
+    width: 480px;
+    height: 320px;
+    background-image: url(../images/pexels-obregonia-480\ 320.jpg);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .empty__library {
+    width: 768px;
+    height: 512px;
+    background-image: url(../images/pexels-obregonia-768\ 512.jpg);
+  }
+}
+
+.library-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
