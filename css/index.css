@@ -530,6 +530,10 @@ header .layout .logo h1 {
   margin-right: 10px;
 }
 
+.developers {
+  color: inherit;
+}
+
 /* color*/
 /*break points*/
 /* Order */
