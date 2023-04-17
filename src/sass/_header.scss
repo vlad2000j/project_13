@@ -249,6 +249,32 @@ header {
                 }
                 
             }
+            
+            .header-movies-buttons {
+                @include flex-row;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100px;
+                background-color: #fff;  
+                visibility: hidden;           
+            
+                @media screen and (min-width: 320px) {
+                    padding: 10px 22px;
+                }
+            
+                @media screen and (min-width: 768px) {
+                    padding: 12px 20px;
+                }
+            
+                @media screen and (min-width: 1280px) {
+                    padding: 14px 24px;
+                }
+            }
+            
+            .header-button-active {
+                background-color: #640606;
+                color: white;
+            }
         }
         .logo {
             position: absolute;
