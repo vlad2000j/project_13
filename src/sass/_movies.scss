@@ -1,0 +1,125 @@
+$black-text-cl: #000000;
+$accent-text-cl: #b92f2c;
+$background-cl: #f0f0f0;
+
+/*break points*/
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1280px;
+
+/* Order */
+$items: 3;
+$indent: 20px;
+
+/* Animation cubic timing function */
+$cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+
+  @media screen and (min-width: $mobile) {
+    width: $mobile;
+  }
+  @media screen and (min-width: $tablet) {
+    width: $tablet;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: $desktop;
+  }
+}
+
+.movies {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  background-color: #F0F0F0;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 32px;
+    padding-bottom: 60px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $indent;
+    @media screen and (min-width: $tablet) {
+      $indent: 32px;
+      gap: $indent;
+    }
+    @media screen and (min-width: $desktop) {
+      $indent: 16px;
+      gap: $indent;
+    }
+  }
+
+  &__card {
+    cursor: pointer;
+    @media screen and (min-width: $tablet) {
+      $indent: 32px;
+      $items: 2;
+      width: calc((100% - ($indent) * (($items) - 1)) / ($items));
+    }
+
+    @media screen and (min-width: $desktop) {
+      $indent: 16px;
+      $items: 3;
+      width: calc((100% - ($indent) * (($items) - 1)) / ($items));
+    }
+  }
+
+  &__card-photo {
+    margin-bottom: 10px;
+    width: 280px;
+    height: 402px;
+
+    border-radius: 5px;
+    transition: box-shadow $cubic;
+
+    @media screen and (min-width: $tablet) {
+      margin-bottom: 8px;
+      width: 336px;
+      height: 455px;
+    }
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 12px;
+      width: 395px;
+      height: 574px;
+    }
+    .movies__card:hover & {
+      box-shadow: 0px 0px 21px 3px $accent-text-cl;
+    }
+  }
+  &__card-title {
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 1.17;
+    color: $black-text-cl;
+    @media screen and (min-width: $tablet) {
+      line-height: 1.33;
+    }
+    @media screen and (min-width: $desktop) {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+  }
+
+  &__card-genres {
+    font-size: 12px;
+    line-height: 1.17;
+    color: $accent-text-cl;
+    @media screen and (min-width: $tablet) {
+      line-height: 1.33;
+    }
+    @media screen and (min-width: $desktop) {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+  }
+}

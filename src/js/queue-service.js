@@ -20,7 +20,7 @@
 
 // ------------------- Реалізація класу QueueService --------------------------
 
-QUEUE = 'queue';
+QUEUE = 'QueueFilms';
 export default class QueueService {
   getAllQueue() {
     if (localStorage.getItem(QUEUE)) {
