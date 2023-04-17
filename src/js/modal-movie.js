@@ -151,7 +151,7 @@ function createMarkupMovieCardInModal({
             <p class="movie-table_title">Popularity</p>
           </td>
           <td>
-            <p>${popularity}</p>
+            <p class="movie-table_popularitynum">${popularity}</p>
           </td>
         </tr>
         <tr class="movie-table_row">
@@ -167,7 +167,7 @@ function createMarkupMovieCardInModal({
             <p class="movie-table_title">Genre</p>
           </td>
           <td>
-            <p>${movieGenres}</p>
+            <p class="movie-table_genrecat">${movieGenres}</p>
           </td>
         </tr>
       </tbody>

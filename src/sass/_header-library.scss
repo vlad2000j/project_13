@@ -1,41 +1,39 @@
-header {
-    @include box;
-    background-color: #F0F0F0;
+header.header-library {
+    display: none;
+    // @include box;
+    background-color: $background-color-main;
+   
     @media screen and (min-width: 320px) {
-        // width: 320px;
         padding: 20px 20px 0px 20px;
       }
     
       // tablet screen 768px//
       @media screen and (min-width: 768px) {
-        // width: 768px;
         padding: 32px 32px 0px 32px;
       }
     
       //decktop screen 1280px//
       @media screen and (min-width: 1280px) {
-        // width: 1280px;
         padding: 32px 32px 0px 32px;
       }
+
     .layout {
         display: block;
 		overflow: hidden;
         border-radius: 15px;
         @media screen and (min-width: 320px) {
-            // margin: 0 20px;
             height: 460px;
           }
         
           // tablet screen 768px
         @media screen and (min-width: 768px) {
-            // margin: 0 32px;
             height: 222px;
         }
 
         @media screen and (min-width: 1280px) {
-            // margin: 0 32px;
             height: 316px;
           }
+
         img.hr_img {
             @media screen and (max-width: 320px) {
                 display: none; 
@@ -47,7 +45,6 @@ header {
 
             @media screen and (min-width: 768px) {
                 display: block;
-                // width: 704px;
                 width: 100%;
                 height: 100%;
                 position: relative;
@@ -56,7 +53,6 @@ header {
 
             @media screen and (min-width: 1280px) {
                 display: block;
-                // width: 1216px;
                 width: 100%;
                 height: 100%;
                 position: relative;
@@ -66,7 +62,6 @@ header {
         img.hr_img_mob {
             @media screen and (min-width: 320px) {
                 display: block;
-                // width: 280px;
                 width: 100%;
                 position: relative;
                 z-index: 1;
@@ -82,7 +77,6 @@ header {
         }
         .nav {
             position: absolute;
-			width: 100%;
 			z-index: 2;
             @include flex-row;
             flex-wrap: wrap;
@@ -93,105 +87,27 @@ header {
                 top: 34px;
 			    left: 34px;
                 gap: 8px;
+                width: 100%;
             }
             
             @media screen and (min-width: 768px) {
                 top: 48px;
 			    left: 48px;
                 gap: 4px;
+                width: 50%;
             }
             
             @media screen and (min-width: 1280px) {
                 top: 48px;
 			    left: 64px;
                 gap: 8px;
+                width: 50%;
             }
-            .search-form {
-                @include flex-row;
-                justify-content: space-between;
-                align-items: center;
-                border-radius: 100px;
-                background-color: $background-color2;
-
-                @media screen and (min-width: 320px) {
-                    padding: 10px 14px;
-                    // width: 252px;
-                    width: 85%;
-                    height: 34px;
-                    order: 1;
-                }
-                
-                @media screen and (min-width: 768px) {
-                    padding: 11px 16px;
-                    width: 165px;
-                    height: 38px;
-                    order: 0;
-                }
-                
-                @media screen and (min-width: 1280px) {
-                    padding: 13px 16px;
-                    width: 187px;
-                    height: 42px;
-                    order: 0;
-                }
-                input[type="text"] {
-                    display: block;
-					overflow: hidden;
-                    border: none;
-                    font-family: 'Roboto';
-                    font-style: normal;
-                    font-weight: 400;
-                    color: $text-color2;
-
-                    @media screen and (min-width: 320px) {
-                        font-size: 12px;
-                        line-height: 14px;
-                    }
-                    
-                    @media screen and (min-width: 768px) {
-                        font-size: 14px;
-                        line-height: 16px;
-                    }
-                    
-                    @media screen and (min-width: 1280px) {
-                        font-size: 14px;
-                        line-height: 16px;
-                    }
-                }
-                &:active {
-                    border-bottom: 1px solid $background-color1; 
-                }
-                button[type="submit"] {
-                    display: block;
-					overflow: hidden;
-                    border: none;
-                    background-color: $background-color2;
-                    cursor: pointer;
-                    img {
-                        color: $text-color2;
-
-                        @media screen and (min-width: 320px) {
-                            width: 14px;
-                            height: 14px;
-                        }
-                        
-                        @media screen and (min-width: 768px) {
-                            width: 16px;
-                            height: 16px;
-                        }
-                        
-                        @media screen and (min-width: 1280px) {
-                            width: 16px;
-                            height: 16px;
-                        } 
-                    }
-                }
-            }
+            
             .home {
                 @include flex-row;
                 justify-content: center;
                 align-items: center;
-                
                 border-radius: 100px;
                 background-color: $background-color1;
 
@@ -224,7 +140,7 @@ header {
                 align-items: center;
                 
                 border-radius: 100px;
-                background-color: #fff;
+                background-color: $background-color2;
 
                 @media screen and (min-width: 320px) {
                     padding: 10px 22px;
@@ -249,33 +165,99 @@ header {
                 }
                 
             }
+        }
+
+        .buttons {
+            position: absolute;
+			z-index: 2;
+            @include flex-row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+
+            @media screen and (min-width: 320px) {
+                top: 422px;
+			    right: 64px;
+                gap: 8px;
+                width: 100%;
+            }
             
-            .header-movies-buttons {
+            @media screen and (min-width: 768px) {
+                top: 48px;
+			    right: 48px;
+                gap: 4px;
+                width: 50%;
+            }
+            
+            @media screen and (min-width: 1280px) {
+                top: 48px;
+			    right: 64px;
+                gap: 8px;
+                width: 50%;
+            }
+            .watched {
                 @include flex-row;
                 justify-content: center;
                 align-items: center;
                 border-radius: 100px;
-                background-color: #fff;  
-                visibility: hidden;           
-            
+                background-color: $background-color3;
+
+                @media screen and (min-width: 320px) {
+                    padding: 10px 26px;
+                }
+                
+                @media screen and (min-width: 768px) {
+                    padding: 12px 24px;
+                }
+                
+                @media screen and (min-width: 1280px) {
+                    padding: 14px 32px;
+                } 
+                a {
+                    cursor: pointer;
+                    color: $text-color1;
+                    text-transform: uppercase;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 14px;
+                }
+            }
+
+            .queue {
+
+                @include flex-row;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100px;
+                background-color: $background-color2;
+
                 @media screen and (min-width: 320px) {
                     padding: 10px 22px;
                 }
-            
+                
                 @media screen and (min-width: 768px) {
                     padding: 12px 20px;
                 }
-            
+                
                 @media screen and (min-width: 1280px) {
                     padding: 14px 24px;
                 }
-            }
-            
-            .header-button-active {
-                background-color: #640606;
-                color: white;
+                a {
+                    cursor: pointer;
+                    color: $text-color2;
+                    text-transform: uppercase;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 14px;
+                }
+                
             }
         }
+
         .logo {
             position: absolute;
 			width: 100%;
@@ -287,7 +269,7 @@ header {
 
             @media screen and (min-width: 320px) {
                 gap: 8px;
-                top: 422px;
+                top: 348px;
 			    left: 65px;
             }
             

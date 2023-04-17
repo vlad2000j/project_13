@@ -1,7 +1,7 @@
 $warning-text-cl: #ff001b;
 $black-text-cl: #000000;
 $white-text-cl: #ffffff;
-$accent-text-cl: #ff6b08;
+$accent-text-cl:#B92F2C;
 $modal-text-cl: #8c8c8c;
 
 body.no-scroll {
@@ -63,11 +63,16 @@ body.no-scroll {
   }
 }
 
+
+
 .modal-movie {
   background-color: #fff;
 
-  border-radius: 20px;
-  padding: 48px 20px 40px;
+ 
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 12px;
+  padding-right: 12px;
 
   scroll-behavior: smooth;
   overflow-y: hidden;
@@ -97,22 +102,31 @@ body.no-scroll {
   align-items: center;
   width: 30px;
   height: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  
   background-color: initial;
-  border-radius: 50%;
+  border-color: transparent;
+  border-radius: 100%;
   cursor: pointer;
-  margin-top: 8px;
-  margin-right: 8px;
   transform: scale(1);
   transition: border-color $cubic, background-color $cubic, transform $cubic;
 
-  &:hover,
-  &:focus {
-    background-color: $accent-text-cl;
-    border-color: $accent-text-cl;
-    transition: border-color $cubic, background-color $cubic, transform $cubic;
-  }
+ 
 }
+
+.button-close::after {
+  content: "x";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  color: black;
+}
+
 
 .movie-card {
   display: flex;
@@ -222,16 +236,18 @@ body.no-scroll {
 
 .movie-title {
   font-weight: 500;
-  font-size: 20px;
-  line-height: 1.17;
+  
+  line-height: 1;
   margin-bottom: 20px;
   text-transform: uppercase;
   @media screen and (min-width: $tablet) and (max-width: 1279px) {
     margin-left: 68px;
+    font-size: 20px;
   }
 
   @media screen and (min-width: $desktop) {
     margin-left: 16px;
+    font-size: 30px;
     font-size: 30px;
   }
 }
@@ -248,6 +264,7 @@ body.no-scroll {
 
 .movie-table_row {
   border-right: 41px solid transparent;
+  
 
   @media screen and (min-width: $desktop) {
     border-right: 85px solid transparent;
@@ -259,17 +276,46 @@ body.no-scroll {
   font-size: 12px;
   line-height: 1.33;
   color: $modal-text-cl;
+  margin-right: 85px;
+  margin-bottom: 8px;
 }
 .movie-table_vote_aver {
-  padding-left: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   background-color: $accent-text-cl;
   color: #fff;
+  
 
   border-radius: 4px;
 }
 .movie-table_title_ori {
   text-transform: uppercase;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
 }
+
+.movie-table_popularitynum {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+}
+
+.movie-table_genrecat {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+}
+
+
 .movie-about_container {
   display: flex;
   flex-direction: column;
@@ -328,12 +374,12 @@ body.no-scroll {
 
 .movie-item:not(:last-child) {
   @media screen and (min-width: $mobile) and (max-width: 767px) {
-    margin-right: 20px;
+    margin-right: 4px;
   }
 
   @media screen and (min-width: $tablet) {
     margin-left: 68px;
-    margin-right: 15px;
+    margin-right: 8px;
   }
 
   @media screen and (min-width: $desktop) {
@@ -353,7 +399,7 @@ body.no-scroll {
   color: $black-text-cl;
   background-color: $white-text-cl;
   border: 1px solid rgba(0, 0, 0, 1);
-  border-radius: 5px;
+  border-radius: 100px;
   transition: background-color $cubic, color $cubic;
 
   &:hover,
@@ -363,18 +409,15 @@ body.no-scroll {
   }
 
   @media screen and (min-width: $mobile) and (max-width: 767px) {
-    width: 110px;
-    height: 44px;
+    padding: 10px 8px;    
   }
 
   @media screen and (min-width: $tablet) {
-    width: 125px;
-    height: 44px;
+  padding: 12px 17px;  
   }
 
   @media screen and (min-width: $desktop) {
-    width: 136px;
-    height: 44px;
+  padding: 14px 32px;
   }
 }
 .hover {
