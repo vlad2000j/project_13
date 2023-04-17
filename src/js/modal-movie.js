@@ -287,17 +287,22 @@ function onAddToWatched(e) {
   Notiflix.Report.success('', 'Film added to WATCHED');
   localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
 }
+
+// Angela Додати це замість onAddToQueue() яка в цьому файлі
 function onAddToQueue() {
   const filmIdToLS = document.querySelector(`[data-add="queue"]`).dataset.id;
-
   const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
-  if (parsedQueueFilms === null) {
-    localStorage.setItem('QueueFilms', JSON.stringify([filmIdToLS]));
-  }
+
   if (parsedQueueFilms.includes(filmIdToLS)) {
     return Notiflix.Report.failure(
       '',
       'The movie has already been added to the queue!'
     );
+  } else {
+    localStorage.setItem(
+      'QueueFilms',
+      JSON.stringify([filmIdToLS, ...parsedQueueFilms])
+    );
+    Notiflix.Report.success('', 'Film added to QUEUE');
   }
 }
