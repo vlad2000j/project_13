@@ -1,0 +1,126 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.footer {
+  margin: 0 auto;
+  background-color: #f7f7f7;
+}
+@media screen and (min-width: 320px) {
+  .footer {
+    width: 320px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer {
+    width: 768px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer {
+    width: 1280px;
+  }
+}
+
+.footer-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 320px) {
+  .footer-container {
+    width: 320px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer-container {
+    width: 768px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer-container {
+    width: 1280px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+.copyright {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.19;
+  align-items: center;
+  text-align: center;
+  color: #545454;
+}
+@media screen and (min-width: 320px) {
+  .copyright {
+    width: 320px;
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .copyright {
+    width: 768px;
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .copyright {
+    width: 1280px;
+    font-size: 16px;
+  }
+}
+
+.copyright_part1,
+.copyright_part2 {
+  display: inline-block;
+}
+
+@media screen and (min-width: 320px) {
+  .copyright_part1 {
+    margin-bottom: 12px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .copyright_part1 {
+    margin-bottom: 0px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .copyright_part1 {
+    margin-bottom: 0px;
+  }
+}
+
+.footer-icon-heart {
+  margin-left: 10px;
+  margin-right: 10px;
+}
