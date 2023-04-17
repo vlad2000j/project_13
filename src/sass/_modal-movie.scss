@@ -1,0 +1,430 @@
+$warning-text-cl: #ff001b;
+$black-text-cl: #000000;
+$white-text-cl: #ffffff;
+$accent-text-cl:#B92F2C;
+$modal-text-cl: #8c8c8c;
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+@keyframes Move {
+  0% {
+    transform: scale(0);
+    transform-origin: center;
+  }
+
+  100% {
+    transform: scale(1);
+    transform-origin: center;
+  }
+}
+@keyframes Bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-20px);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes Heart {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.2);
+  }
+  10% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+.modal-movie {
+  background-color: #fff;
+
+ 
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+
+  @media screen and (max-width: 767px) {
+    width: 85dvw;
+    height: 95dvh;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 704px;
+    padding: 40px 72px 40px 36px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 806px;
+    padding: 40px 12px;
+  }
+}
+
+.button-close {
+  position: absolute;
+  z-index: 100;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  
+  background-color: initial;
+  border-color: transparent;
+  border-radius: 100%;
+  cursor: pointer;
+  transform: scale(1);
+  transition: border-color $cubic, background-color $cubic, transform $cubic;
+
+ 
+}
+
+.button-close::after {
+  content: "x";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  color: black;
+}
+
+
+.movie-card {
+  display: flex;
+  @media screen and (min-width: $mobile) {
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+  }
+}
+
+.movie-card_request {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-card_img-cover {
+  position: relative;
+}
+
+.movie-card_photo {
+  display: flex;
+  border-radius: 4px;
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    width: 240px;
+    height: 357px;
+
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1279px) {
+    width: 264px;
+    height: 374px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 375px;
+    height: 478px;
+  }
+}
+
+.button-open-trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  /* background: $accent-text-cl;*/
+  box-sizing: border-box;
+  width: calc(55px * 2);
+  border-width: 5px;
+  height: calc(55px * 2);
+  border-radius: 50%;
+  border-color: white;
+  background-color: transparent;
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    width: 55px;
+    height: 55px;
+    border-width: 2px;
+  }
+  &:hover,
+  &:focus {
+    background-color: $accent-text-cl;
+    border-color: transparent, transparent, transparent, orange;
+    border-style: solid;
+  }
+}
+
+.button-open-trailer::after {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  left: 3px;
+  border-style: solid;
+  border-width: 20px 0 20px 40px;
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    border-width: 10px 0 10px 20px;
+  }
+  border-color: transparent transparent transparent white;
+  &:hover,
+  &:focus {
+    background-color: $accent-text-cl;
+    border-style: solid;
+  }
+}
+
+.movie-description {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: $main-font;
+  font-size: 12px;
+  width: 90%;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.movie-title {
+  font-weight: 500;
+  
+  line-height: 1;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  @media screen and (min-width: $tablet) and (max-width: 1279px) {
+    margin-left: 68px;
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 16px;
+    font-size: 30px;
+    font-size: 30px;
+  }
+}
+
+.movie-table {
+  @media screen and (min-width: $tablet) {
+    margin-left: 68px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 16px;
+  }
+}
+
+.movie-table_row {
+  border-right: 41px solid transparent;
+  
+
+  @media screen and (min-width: $desktop) {
+    border-right: 85px solid transparent;
+  }
+}
+
+.movie-table_title {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: $modal-text-cl;
+  margin-right: 85px;
+  margin-bottom: 8px;
+}
+.movie-table_vote_aver {
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-color: $accent-text-cl;
+  color: #fff;
+  
+
+  border-radius: 4px;
+}
+.movie-table_title_ori {
+  text-transform: uppercase;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+}
+
+.movie-table_popularitynum {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+}
+
+.movie-table_genrecat {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+}
+
+
+.movie-about_container {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: $mobile) {
+    // width: 240px;
+    height: auto;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 264px;
+    height: auto;
+    margin-left: 68px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 391px;
+    height: auto;
+    margin-left: 16px;
+  }
+}
+
+.movie-about {
+  display: flex;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+.movie-about_text {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.67;
+  margin-bottom: 20px;
+  width: 100%;
+  @media screen and (max-width: 767px) {
+    max-height: 100px;
+    overflow: auto;
+  }
+
+  @media screen and (min-width: 767px) and (max-width: $desktop) {
+    max-height: 236px;
+    overflow: auto;
+  }
+}
+
+.movie-list {
+  @extend %list;
+  display: flex;
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+  }
+}
+
+.movie-item:not(:last-child) {
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    margin-right: 4px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-left: 68px;
+    margin-right: 8px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 16px;
+  }
+}
+
+.movie-item_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: $black-text-cl;
+  background-color: $white-text-cl;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 100px;
+  transition: background-color $cubic, color $cubic;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-text-cl;
+    color: $white-text-cl;
+  }
+
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    padding: 10px 8px;    
+  }
+
+  @media screen and (min-width: $tablet) {
+  padding: 12px 17px;  
+  }
+
+  @media screen and (min-width: $desktop) {
+  padding: 14px 32px;
+  }
+}
+.hover {
+  margin-top: 15px;
+  &:hover,
+  &:focus {
+    background-color: $warning-text-cl;
+    color: $white-text-cl;
+  }
+}
