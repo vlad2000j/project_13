@@ -4,7 +4,7 @@ import {
   onKeyWord,
 } from './movies-api-service.js';
 import Notiflix from 'notiflix';
-import { createPagi } from './pagination_main';
+// import { createPagi } from './pagination';
 
 const galleryConteiner = document.querySelector('.movies__list');
 let page = 1;
