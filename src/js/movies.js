@@ -1,3 +1,4 @@
+import { createPage } from './pagination_main';
 import {
   getPopularMovies,
   getGanres,
