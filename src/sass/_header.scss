@@ -196,6 +196,15 @@ header {
                 color: #FFFFFF;
                 border-radius: 100px;
                 background-color: $background-color1;
+                color: $text-color1;
+                    text-transform: uppercase;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 14px;
+                    cursor: pointer;
+       
 
                 @media screen and (min-width: 320px) {
                     padding: 10px 26px;
@@ -209,14 +218,9 @@ header {
                     padding: 14px 32px;
                 } 
                 a {
-                    cursor: pointer;
+                    
                     color: $text-color1;
-                    text-transform: uppercase;
-                    font-family: 'Roboto';
-                    font-style: normal;
-                    font-weight: 500;
-                    font-size: 12px;
-                    line-height: 14px;
+                   
                 }
                 
             }
@@ -235,6 +239,7 @@ header {
                 font-weight: 500;
                 font-size: 12px;
                 line-height: 14px;
+                
 
                 @media screen and (min-width: 320px) {
                     padding: 10px 22px;
