@@ -1,47 +1,420 @@
-.tui-pagination {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  padding-bottom: 60px;
-  background-color: #F0F0F0;
+// .tui-pagination {
+//   display: flex;
+//   justify-content: center;
+//   margin: 0 auto;
+//   padding-bottom: 60px;
+//   background-color: #F0F0F0;
+// }
+
+// .tui-page-btn {
+//   width: 40px;
+//   height: 40px;
+//   font-family: 'Roboto';
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 12px;
+//   line-height: 1.33;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   color: #000000;
+// }
+
+// .tui-prev,
+// .tui-next,
+// .tui-ico-first,
+// .tui-ico-last {
+//   // display: none;
+// }
+
+// .tui-prev{
+//   background-image: url('../images/svg/next-right.svg');
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     // background-size: contain;
+
+// }
+
+// .tui-next{
+//   background-image: url('../images/svg/next-right.svg');
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     // background-size: contain;
+// }
+
+// .tui-first {
+//   background-image: url('../images/svg/first.svg');
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: contain;
+// }
+
+// .tui-last {
+//   background-image: url('../images/svg/last.svg');
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   // background-size: contain;
+// }
+// .tui-is-selected {
+//   color: #ffffff;
+//   background-color: #b92f2c;
+//   border-radius: 5px;
+// }
+
+
+@charset 'utf-8';
+
+.tui-pagination * {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.tui-page-btn {
-  width: 40px;
+
+.tui-pagination {
+  padding-bottom: 40px;
+
+  @media screen and (min-width: $tablet) {
+    padding-bottom: 60px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-bottom: 60px;
+  }
+}
+
+.tui-pagination {
+  height: 28px;
+  margin: 14px 0 12px;
+  margin-bottom: 60px;
+  line-height: normal;
+  text-align: center;
+  font-size: 0;
+}
+
+.tui-pagination .tui-page-btn {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
   height: 40px;
+  width: 40px;
+  padding: 13px 13px 11px 13px;
+  margin-left: 0;
+  color: #000000;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12;
+  line-height: 1.33;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.tui-pagination .tui-page-btn:not(:last-child) {
+  margin-right: 3px;
+}
+
+.tui-pagination .tui-page-btn:hover {
+  background-color: #F4F4F4;
+  border-radius: 5px;
+}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  color: #fff;
+  background-color: #B92F2C;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tui-pagination .tui-is-selected:hover {
+  background-color: #B92F2C;
+}
+
+.tui-pagination .tui-first-child.tui-is-selected,
+.tui-pagination strong.tui-first-child {
+  margin-left: 0;
+}
+
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next,
+.tui-pagination .tui-last,
+.tui-pagination .tui-first {
+  border-radius: 5px;
+  padding: 12px 12px 12px 12px;
+  background-color: #F7F7F7;
+  overflow: hidden;
+  height: 40px;
+  padding: 0;
+  font-size: 0;
+  line-height: 26px;
+  white-space: nowrap;
+  font-weight: normal;
+}
+
+.tui-pagination .tui-prev-is-ellip,
+.tui-pagination .tui-next-is-ellip {
+  border-radius: 5px;
+  padding: 12px 12px 12px 12px;
+  overflow: hidden;
+  height: 40px;
+  padding: 0;
+  font-size: 0;
+  line-height: 26px;
+  white-space: nowrap;
+  font-weight: normal;
+}
+
+.tui-pagination .tui-prev-is-ellip {
+  border-right: 0;
+}
+
+.tui-pagination .tui-next-is-ellip {
+  border-left: 0;
+}
+
+.tui-pagination .tui-first+.tui-prev,
+.tui-pagination .tui-next+.tui-last {
+  border-left: 0;
+}
+
+.tui-pagination .tui-prev-is-ellip,
+.tui-pagination .tui-next-is-ellip {
+  padding: 0;
+  line-height: 1;
+}
+
+.tui-pagination .tui-prev {
+  margin-right: 10px;
+}
+
+.tui-pagination .tui-next {
+  margin-left: 10px;
+}
+
+.tui-pagination .tui-ico-prev,
+.tui-pagination .tui-ico-next,
+.tui-pagination .tui-ico-first {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000000;
+  font-size: 30px;
+  line-height: 16px;
+  width: 100%;
+  height: 100%;
+  transition: color $cubic;
 }
 
-.tui-prev,
-.tui-next,
-.tui-ico-first,
-.tui-ico-last {
+.tui-pagination .tui-ico-last {
+  width: 11px;
+  height: 10px;
+  background-position: 0px -12px;
+}
+
+.tui-pagination .tui-ico-ellip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 16px;
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  background-position: 0px -24px;
+}
+
+.tui-pagination .tui-is-disabled:hover {
+  cursor: default;
+}
+
+.tui-pagination .tui-is-disabled .tui-ico-first {
+  background-position: -13px 0px;
+}
+
+.tui-pagination .tui-is-disabled .tui-ico-next {
+  background-position: -21px -24px;
+}
+
+.tui-pagination .tui-is-disabled .tui-ico-last {
+  background-position: -13px -12px;
+}
+
+.tui-page-inputs {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.tui-page-inputs .tui-page-input {
+  display: inline-block;
+  width: 10px;
+  height: 12px;
+  padding: 8px 0 6px;
+  font-size: 12px;
+  text-align: center;
+  color: #333;
+  border: 0;
+  outline: none;
+}
+
+.tui-page-separator {
+  display: inline-block;
+  font-size: 12px;
+  height: 12px;
+  padding: 8px 0 6px;
+  vertical-align: top;
+}
+
+//-----------------
+.moreButton {
+  width: 10px;
+  height: 10px;
+}
+
+.tui-prev .tui-ico-prev:hover {
+  color: white;
+}
+
+.tui-prev .tui-ico-prev {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.tui-next .tui-ico-next::before {
+  width: 40px;
+  height: 40px;
+  font-family: Roboto;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  margin-right: 10px;
+  transition: color $cubic;
+  content: '\2192';
+}
+
+.tui-next .tui-ico-next:hover::before {
+  color: white;
+}
+
+.tui-next .tui-ico-next {
+  display: flex;
+}
+
+.tui-last .tui-ico-last::before {
+  transition: border-color $cubic, color $cubic;
+  width: 100%;
+  height: 100%;
+  font-family: Roboto;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+  content: '\21E5';
+}
+
+.tui-last .tui-ico-last:hover::before {
+  color: $white-text-cl;
+  box-shadow: 0px 0px 21px 3px rgb(168, 58, 56);
+  border-color: $accent-text-cl;
+  color: white;
+}
+
+.tui-first .tui-ico-first::before {
+  transition: border-color $cubic, color $cubic;
+  width: 100%;
+  height: 100%;
+  font-family: Roboto;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+  content: '\21E4';
+}
+
+.tui-first .tui-ico-first:hover::before {
+  box-shadow: 0px 0px 21px 3px rgb(168, 58, 56);
+  border-color: $accent-text-cl;
+  color: white;
+}
+
+.tui-page-btn.tui-last,
+.tui-page-btn.tui-next,
+.tui-page-btn.tui-first,
+.tui-page-btn.tui-prev {
+  transition: box-shadow $cubic, background-color $cubic;
+}
+
+.tui-page-btn {
+  transition: box-shadow $cubic, background-color $cubic, border-radius $cubic;
+}
+
+.tui-page-btn:hover {
+  background-color: #B92F2C;
+  box-shadow: 0px 0px 21px 3px rgb(168, 58, 56);
+}
+
+.tui-page-btn.tui-last:hover,
+.tui-page-btn.tui-next:hover,
+.tui-page-btn.tui-first:hover,
+.tui-page-btn.tui-prev:hover {
+  background-color: #B92F2C;
+  box-shadow: 0px 0px 21px 3px rgb(168, 58, 56);
+}
+
+.tui-ico-page {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.tui-page-btn.tui-is-disabled.tui-first.disabledMoveButton {
+  background-color: white;
+}
+
+@media screen and (max-width: 500px) {
+
+  .tui-page-btn.tui-first,
+  .tui-page-btn.tui-prev-is-ellip.tui-first-child,
+  .tui-page-btn.tui-last,
+  .tui-page-btn.tui-next-is-ellip.tui-last-child {
+    display: none;
+  }
+}
+
+@media screen and(max-width:767px) {
+  .tui-pagination-container {
+    margin-bottom: 40px;
+  }
+}
+
+.tui-page-btn.tui-is-disabled.tui-next.disabledMoveButton,
+.tui-page-btn.tui-is-disabled.tui-last.disabledMoveButton {
   display: none;
 }
 
-.tui-first {
-  background-image: url('../images/svg/first.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-.tui-last {
-  background-image: url('../images/svg/last.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-.tui-is-selected {
-  color: #ffffff;
-  background-color: #b92f2c;
-  border-radius: 5px;
+.disabledMoveButton {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
