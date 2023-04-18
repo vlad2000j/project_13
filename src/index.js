@@ -6,4 +6,8 @@ import './js/modal-movie';
 import './js/trailer';
 import './js/watched_queue_button';
 import './js/pagination_main';
+
+import './js/loading';
+
 import './js/modal-card';
+

@@ -7,11 +7,13 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 
 import { fetchTrailer } from './trailer';
 import { checkImg } from './movies';
+import { displayLoading, hideLoading } from './loading';
 
 const refs = {
   openModal: document.querySelector('.movies__list'),
   closeModalBtn: document.querySelector('.button-close'),
   backdrop: document.querySelector('.backdrop-movie'),
+  movieModal: document.querySelector('.modal-movie'),
   movieCard: document.querySelector('.movie-card'),
   body: document.querySelector('[data-page]'),
 };
@@ -31,8 +33,10 @@ refs.openModal.addEventListener('click', searchIdforMovie);
 async function searchIdforMovie(e) {
   if (e.target.nodeName === 'LI') {
     const idMovie = e.target.id;
+    refs.movieModal.appendChild(displayLoading());
     const response = await fetchById(idMovie);
-
+    hideLoading();
+    
     createMarkupMovieCardInModal(response);
   }
   if (
@@ -42,10 +46,12 @@ async function searchIdforMovie(e) {
     e.target.nodeName === 'P'
   ) {
     const idMovie = e.target.parentElement.id;
+    instance.show();
+    refs.movieModal.appendChild(displayLoading());
     const response = await fetchById(idMovie);
+    hideLoading();
     // берем ID клік idMovie
     createMarkupMovieCardInModal(response);
-    instance.show();
     refs.closeModalBtn.addEventListener('click', closeModal);
     document.addEventListener('keydown', event => closeModalEscape(event));
 

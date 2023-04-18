@@ -1,0 +1,27 @@
+.is-displayed {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  background: conic-gradient(red, transparent);
+  animation: rotating 1s linear infinite;
+}
+
+.is-displayed::before {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  background: #f0f0f0;
+  top: 10px;
+  left: 10px;
+}
+@-webkit-keyframes rotating {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

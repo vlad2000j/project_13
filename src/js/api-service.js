@@ -1,6 +1,7 @@
 import axios from 'axios';
 import API_KEY from './vars';
 import genres from './genres';
+import { displayLoading, hideLoading } from './loading';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 export default class ApiService {
