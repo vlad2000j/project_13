@@ -1,0 +1,206 @@
+body.no-scroll {
+  overflow: hidden;
+}
+
+.modal::-webkit-scrollbar {
+  width: 12px;
+}
+
+.backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 250ms $cubic;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+
+  .modal {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+.modal {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 550px;
+
+  padding: 5px;
+  padding-top: 15px;
+
+  background-color: $white-text-cl;
+  box-shadow: 0 4px 4px #00000040;
+  border-radius: 30px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms $cubic;
+
+  @media screen and (min-width: $tablet) and (max-width: ($desktop - 1px )) {
+    padding-top: 150px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 700px;
+    height: 700px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 848px;
+    height: 700px;
+    border-radius: 2%;
+  }
+}
+
+.modal-title {
+  text-align: center;
+  @media screen and (max-width: ( $tablet - 1px )) {
+    font-size: 14px;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: initial;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-right: 8px;
+  transform: scale(1);
+  transition: border-color $cubic, background-color $cubic, transform $cubic;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-text-cl;
+    border-color: $accent-text-cl;
+  }
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px 20px;
+  @media screen and (min-width: $tablet) {
+    padding: 25px 40px;
+  }
+}
+
+.card__item {
+  margin-bottom: 30px;
+}
+
+.card__item:last-child {
+  margin-bottom: 0;
+}
+
+.card__item {
+  width: calc((100% - 30px) / 2);
+  margin-bottom: 0;
+
+  @media screen and (min-width: $tablet) {
+    width: calc((100% - 60px) / 3);
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: calc((100% - 90px) / 4);
+  }
+}
+
+.card .card__item:hover,
+.card .card__item:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: box-shadow 250ms $cubic;
+}
+
+.card__title {
+  color: $text-color2;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+  }
+}
+
+.card__desc {
+  color: $modal-text-cl;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  @media screen and (min-width: $tablet) {
+    font-size: 14px;
+  }
+}
+
+.card__link {
+  text-decoration: none;
+}
+
+.card__border {
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  text-align: center;
+  padding: 5px;
+}
+
+.card__overflow {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__overlay {
+  display: none;
+}
+
+.card__item .card__link:hover .card__overlay,
+.card__item .card__link:focus .card__overlay {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.card__text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: $white-text-cl;
+  padding: 15px;
+}
+
+.card-photo {
+  text-align: center;
+  width: 95px;
+  height: 95px;
+  margin: 0 auto;
+  @media screen and (min-width: $tablet) {
+    width: 170px;
+    height: 170px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 145px;
+    height: 145px;
+  }
+}
