@@ -189,11 +189,11 @@ header {
                     }
                 }
             }
-            .home {
+            .header__nav-link {
                 @include flex-row;
                 justify-content: center;
                 align-items: center;
-                
+                color: #FFFFFF;
                 border-radius: 100px;
                 background-color: $background-color1;
 
@@ -471,3 +471,4 @@ header {
         }
     }
 }
+
