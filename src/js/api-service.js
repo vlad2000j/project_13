@@ -1,7 +1,6 @@
 import axios from 'axios';
 import API_KEY from './vars';
 import genres from './genres';
-import { displayLoading, hideLoading } from './loading';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 export default class ApiService {
@@ -26,7 +25,7 @@ export default class ApiService {
     this.page = 1;
   }
 
-  async getMoviesData() {
+  async SearchMoviesData() {
     const config = {
       method: 'get',
       url: `${BASE_URL}/search/movie`,
@@ -56,6 +55,70 @@ export default class ApiService {
           vote_average,
           vote_count,
         } = obj;
+
+        const poster_url = poster_path
+          ? `https://image.tmdb.org/t/p/original/${poster_path}`
+          : 'http://surl.li/glnug';
+
+        const genres_names = getGenresByIds(genres, genre_ids);
+        const release_year = release_date.slice(0, 4);
+        const new_obj = {
+          id,
+          genres_names,
+          title,
+          poster_url,
+          release_year,
+          backdrop_path,
+          overview,
+          popularity,
+          original_title,
+          vote_average,
+          vote_count,
+        };
+        movies.push(new_obj);
+      }
+      const data = {
+        page: response.data.page,
+        movies,
+      };
+      return data;
+    } catch {
+      console.log('Sonething wrong');
+      return;
+    }
+  }
+
+  async getPopularMovies() {
+    const config = {
+      method: 'get',
+      url: `${BASE_URL}/trending/movie/day`,
+      responseType: 'json',
+      params: {
+        api_key: API_KEY,
+        page: this.page,
+      },
+    };
+
+    const movies = [];
+
+    try {
+      const response = await axios(config);
+      // console.log(response.data);
+      for (const obj of response.data.results) {
+        const {
+          id,
+          genre_ids,
+          title,
+          poster_path,
+          release_date,
+          backdrop_path,
+          overview,
+          popularity,
+          original_title,
+          vote_average,
+          vote_count,
+        } = obj;
+        obj.total_pages = response.data.total_pages;
         const poster_url = `https://image.tmdb.org/t/p/original/${poster_path}`;
         const genres_names = getGenresByIds(genres, genre_ids);
         const release_year = release_date.slice(0, 4);
@@ -84,58 +147,41 @@ export default class ApiService {
       return;
     }
   }
+
+  async getMovieById(id) {
+    const config = {
+      method: 'get',
+      url: `${BASE_URL}/movie/${id}`,
+      responseType: 'json',
+      params: {
+        api_key: API_KEY,
+      },
+    };
+
+    try {
+      const response = await axios(config);
+      const data = response.data;
+      const genres_names = data.genres.map(e => e.name).join(', ');
+      const poster_url = data.poster_path
+        ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
+        : 'http://surl.li/glnug';
+      const newData = {
+        id,
+        title: data.title,
+        original_title: data.original_title,
+        overview: data.overview,
+        poster_url,
+        vote_average: data.vote_average.toFixed(1),
+        vote_count: data.vote_count,
+        popularity: data.popularity,
+        genres_names,
+      };
+      return newData;
+    } catch {
+      return;
+    }
+  }
 }
-// ----------------------------------------------------------------------------
-// Метод getMoviesData() вповертає об'єкт з наступними полями:
-// page --- номер сторінки,
-// movies --- масив об'єктів з даними про фільм.
-// Елементи масиву --- об'єкти мають наступні поля
-// ------------------------------------------------------
-// genres_names --- масив з переліком жанрів (для картки)
-// title --- назва фільму
-// poster_url --- адреса для постера
-// release_year --- рік виходу фільму
-// backdrop_path --- беудроп для модалки
-// overvie --- опис фільму (для модалки)
-// popularity --- популярність (для модалки)
-// original_title --- оригінальна назва (для модалки)
-// vote_average --- середній рейтинг (для модалки)
-// vote_count --- кількість голосів (для модалки)
-// ----------------------------------------------------------------------------
-
-// Приклад використання
-
-// myService = new ApiService();
-// myService.query = 'Titanic'; // Пошуковий запит
-// myService.page = 2; // Номер сторінки
-
-// Для картотеки фільмів
-
-// async function cardsMarkup() {
-//   const movieData = await myService.getMoviesData();
-//   if (!movieData.movies.length) {
-//     console.log('No such movies'); // Тут можна Notify, або якусь модалку
-//     return;
-//   }
-//   console.log(movieData.page);
-//   const movieCards = movieData.movies
-//     .map(
-//       element =>
-//         `<div>
-//         <img src=${element.poster_url}/>
-//         <p>${element.title}</p>
-//         <p><span>${element.genres_names.join(', ')}</span> | <span>${
-//           element.release_year
-//         }</span></p>
-//       </div>`
-//     )
-//     .join('');
-//   console.log(movieCards); // Замість console.log можна insertAdjusentHTML
-// }
-
-// cardsMarkup();
-
-// ----------------------------------------------------------------------------
 
 // Функція для перетворення масиву ids жанрів в масив імен жанрів
 function getGenresByIds(genres, ids) {
@@ -143,3 +189,5 @@ function getGenresByIds(genres, ids) {
     .filter(genre => ids.includes(genre.id))
     .map(genre => genre.name);
 }
+
+//  ---------------------------------------------------------------------------
