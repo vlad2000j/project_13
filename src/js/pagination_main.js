@@ -43,7 +43,6 @@
 //   createMoviesMarkup(currentPage);
 // });
 
-
 import Pagination from 'tui-pagination';
 import { galleryConteiner, createMoviesMarkup } from './movies';
 export { createPage };

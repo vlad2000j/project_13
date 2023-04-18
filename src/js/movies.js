@@ -6,7 +6,7 @@ import {
 } from './movies-api-service.js';
 import Notiflix from 'notiflix';
 import { displayLoading, hideLoading } from './loading';
-// import { createPagi } from './pagination';
+// import { createPagi } from './pagination_main.js';
 
 const galleryConteiner = document.querySelector('.movies__list');
 let page = 1;
@@ -19,16 +19,12 @@ export {
   checkImg,
 };
 
-
-  
-
 async function createMoviesMarkup(page) {
   if (
     document.querySelector('.header__nav-link.active').textContent === 'Home'
   ) {
-
     const response = await getPopularMovies(page);
-    
+
     const results = response.data.results;
     const arrGenerId = response.data.results.map(item => item.genre_ids);
 
@@ -48,7 +44,7 @@ getPopularMovies(page)
     createMoviesMarkup(page);
     hideLoading();
     const totalRes = data.total_results;
-    // createPage(totalRes);
+    createPage(totalRes);
   })
   .catch(error => console.log(error));
 
