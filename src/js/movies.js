@@ -18,7 +18,6 @@ export {
   checkImg,
 };
 
-
 async function createMoviesMarkup(page) {
   if (
     document.querySelector('.header__nav-link.active').textContent === 'Home'
@@ -41,7 +40,7 @@ getPopularMovies(page)
   .then(({ data }) => {
     createMoviesMarkup(page);
     const totalRes = data.total_results;
-    createPage(totalRes);
+    // createPage(totalRes);
   })
   .catch(error => console.log(error));
 
@@ -62,16 +61,9 @@ async function createMoviesMarkupKey(searchQuery, page) {
 // Ці функції можна вивести в окремий модуль js
 export const markup = results => {
   return results
-    .map(
-      ({
-        poster_path,
-        title,
-        id,
-        release_date,
-        genre_ids,
-      }) => {
-        const genres = genre_ids ? genre_ids.join(', ') : "";
-        return `<li class="movies__card" id="${id}">
+    .map(({ poster_path, title, id, release_date, genre_ids }) => {
+      const genres = genre_ids ? genre_ids.join(', ') : '';
+      return `<li class="movies__card" id="${id}">
     <img
       class="movies__card-photo"
       src="${checkImg(poster_path)}"
@@ -82,10 +74,10 @@ export const markup = results => {
     />
     <h2 class="movies__card-title">${title}</h2>
     <p class="movies__card-genres">${genres} | ${dotaReleaseCheck(
-          release_date
-        )}</p>
-  </li>`}
-    )
+        release_date
+      )}</p>
+  </li>`;
+    })
     .join('');
 };
 
