@@ -3,12 +3,8 @@
   width: 80px;
   height: 80px;
   border-radius: 50px;
-  background: conic-gradient(rgb(248, 241, 37), transparent);
+  background: conic-gradient(red, transparent);
   animation: rotating 1s linear infinite;
-  left: 50%;
-  margin-left: -40px;
-  // top: 50%;
-  // margin-top: -25px;
 }
 
 .is-displayed::before {
@@ -17,7 +13,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50px;
-  background: white;
+  background: #f0f0f0;
   top: 10px;
   left: 10px;
 }

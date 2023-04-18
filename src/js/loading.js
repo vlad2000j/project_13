@@ -1,10 +1,11 @@
-const newDiv = document.createElement('div');
+const newDiv = document.createElement("div");
+
 
 export function displayLoading() {
   newDiv.classList.add('is-displayed');
-  document.body.append(newDiv);
+  return newDiv
 }
 
 export function hideLoading() {
-    newDiv.remove()
+  newDiv.remove()
 }
