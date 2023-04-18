@@ -1,6 +1,6 @@
 header {
     @include box;
-    background-color: #F0F0F0;
+    background-color: $background-color-main;
     @media screen and (min-width: 320px) {
         // width: 320px;
         padding: 20px 20px 0px 20px;
@@ -47,8 +47,8 @@ header {
 
             @media screen and (min-width: 768px) {
                 display: block;
-                // width: 704px;
-                width: 100%;
+                width: 704px;
+                // width: 100%;
                 height: 100%;
                 position: relative;
                 z-index: 1;
@@ -56,8 +56,8 @@ header {
 
             @media screen and (min-width: 1280px) {
                 display: block;
-                // width: 1216px;
-                width: 100%;
+                width: 1216px;
+                // width: 100%;
                 height: 100%;
                 position: relative;
                 z-index: 1;
@@ -66,8 +66,8 @@ header {
         img.hr_img_mob {
             @media screen and (min-width: 320px) {
                 display: block;
-                // width: 280px;
-                width: 100%;
+                width: 280px;
+                // width: 100%;
                 position: relative;
                 z-index: 1;
             }
@@ -82,7 +82,6 @@ header {
         }
         .nav {
             position: absolute;
-			width: 100%;
 			z-index: 2;
             @include flex-row;
             flex-wrap: wrap;
@@ -90,18 +89,21 @@ header {
             align-items: center;
 
             @media screen and (min-width: 320px) {
+                width: 100%;
                 top: 34px;
 			    left: 34px;
                 gap: 8px;
             }
             
             @media screen and (min-width: 768px) {
+                width: 50%;
                 top: 48px;
 			    left: 48px;
                 gap: 4px;
             }
             
             @media screen and (min-width: 1280px) {
+                width: 50%;
                 top: 48px;
 			    left: 64px;
                 gap: 8px;
@@ -115,8 +117,8 @@ header {
 
                 @media screen and (min-width: 320px) {
                     padding: 10px 14px;
-                    // width: 252px;
-                    width: 85%;
+                    width: 252px;
+                    // width: 85%;
                     height: 34px;
                     order: 1;
                 }
@@ -222,9 +224,17 @@ header {
                 @include flex-row;
                 justify-content: center;
                 align-items: center;
-                
+                border: none;
                 border-radius: 100px;
-                background-color: #fff;
+                background-color: $background-color2;
+                cursor: pointer;
+                color: $text-color2;
+                text-transform: uppercase;
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 14px;
 
                 @media screen and (min-width: 320px) {
                     padding: 10px 22px;
@@ -236,47 +246,86 @@ header {
                 
                 @media screen and (min-width: 1280px) {
                     padding: 14px 24px;
-                }
-                a {
-                    cursor: pointer;
-                    color: $text-color2;
-                    text-transform: uppercase;
-                    font-family: 'Roboto';
-                    font-style: normal;
-                    font-weight: 500;
-                    font-size: 12px;
-                    line-height: 14px;
-                }
-                
+                }  
+            }
+        }
+        .library-buttons {
+            position: absolute;
+			z-index: 2;
+            @include flex-row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+
+            @media screen and (min-width: 320px) {
+                top: 422px;
+			    right: 64px;
+                gap: 8px;
+                width: 100%;
             }
             
-            .header-movies-buttons {
-                @include flex-row;
-                justify-content: center;
-                align-items: center;
-                border-radius: 100px;
-                background-color: #fff;  
-                visibility: hidden;           
+            @media screen and (min-width: 768px) {
+                top: 48px;
+			    right: 48px;
+                gap: 4px;
+                width: 30%;
+            }
             
+            @media screen and (min-width: 1280px) {
+                top: 48px;
+			    right: 64px;
+                gap: 8px;
+                width: 30%;
+            }
+            .header-movies-buttons {
+                border: none;
+                border-radius: 100px;
+                background-color: $background-color2;
+                visibility: hidden;
+                cursor: pointer;
+                color: $text-color2;
+                text-transform: uppercase;
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 14px;
+            }
+
+            .watched {
+                @media screen and (min-width: 320px) {
+                    padding: 10px 26px;
+                }
+                
+                @media screen and (min-width: 768px) {
+                    padding: 12px 24px;
+                }
+                
+                @media screen and (min-width: 1280px) {
+                    padding: 14px 32px;
+                }
+            }
+
+            .queue {
                 @media screen and (min-width: 320px) {
                     padding: 10px 22px;
                 }
-            
+                
                 @media screen and (min-width: 768px) {
                     padding: 12px 20px;
                 }
-            
+                
                 @media screen and (min-width: 1280px) {
                     padding: 14px 24px;
                 }
             }
             
             .header-button-active {
-                background-color: #640606;
-                color: white;
+                background-color: $background-color-active;
+                color: $text-color1;
             }
         }
-        .logo {
+        .logo-main {
             position: absolute;
 			width: 100%;
 			z-index: 2;
@@ -288,6 +337,78 @@ header {
             @media screen and (min-width: 320px) {
                 gap: 8px;
                 top: 422px;
+			    left: 65px;
+            }
+            
+            @media screen and (min-width: 768px) {
+                gap: 8px;
+                top: 191px;
+			    left: 48px;
+            }
+            
+            @media screen and (min-width: 1280px) {
+                gap: 16px;
+                top: 241px;
+			    left: 64px;
+            }
+
+            a {
+                display: block;
+				overflow: hidden;
+                cursor: pointer;
+                img {
+                    display: block;
+                    overflow: hidden; 
+
+                    @media screen and (min-width: 320px) {
+                        height: 32px;
+                    }
+                    
+                    @media screen and (min-width: 768px) {
+                        height: 40px;
+                    }
+                    
+                    @media screen and (min-width: 1280px) {
+                        height: 59px;
+                    }
+                }
+            }
+            h1 {
+                display: block;
+				overflow: hidden;
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 500;
+                color: $text-color1;
+
+                @media screen and (min-width: 320px) {
+                    font-size: 32px;
+                    line-height: 37.5px; 
+                }
+                
+                @media screen and (min-width: 768px) {
+                    font-size: 40px;
+                    line-height: 46.88px; 
+                }
+                
+                @media screen and (min-width: 1280px) {
+                    font-size: 64px;
+                    line-height: 75px; 
+                }
+            }
+        }
+        .logo-library {
+            position: absolute;
+			width: 100%;
+			z-index: 2;
+            @include flex-row;
+            justify-content: flex-start;
+            align-items: center;
+            
+
+            @media screen and (min-width: 320px) {
+                gap: 8px;
+                top: 348px;
 			    left: 65px;
             }
             
