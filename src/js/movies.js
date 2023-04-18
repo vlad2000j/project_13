@@ -33,7 +33,8 @@ async function createMoviesMarkup(page) {
     const arrGener = genreResponse.data.genres;
 
     replaceIdtoGener(arrGener, arrGenerId);
-    markup(results);
+    const mappedMovies = markup(results);
+    insertMarkup(mappedMovies);
 
     return;
   }
@@ -58,12 +59,13 @@ async function createMoviesMarkupKey(searchQuery, page) {
 
   replaceIdtoGener(arrGener, arrGenerId);
 
-  markup(results);
+  const mappedMovies = markup(results);
+  insertMarkup(mappedMovies);
 }
 
 // Ці функції можна вивести в окремий модуль js
-const markup = results => {
-  const markup = results
+export const markup = results => {
+  return results
     .map(
       ({
         poster_path,
@@ -71,7 +73,9 @@ const markup = results => {
         id,
         release_date,
         genre_ids,
-      }) => `<li class="movies__card" id="${id}">
+      }) => {
+        const genres = genre_ids ? genre_ids.join(', ') : "";
+        return `<li class="movies__card" id="${id}">
     <img
       class="movies__card-photo"
       src="${checkImg(poster_path)}"
@@ -81,20 +85,23 @@ const markup = results => {
       height="574px"
     />
     <h2 class="movies__card-title">${title}</h2>
-    <p class="movies__card-genres">${genre_ids.join(', ')} | ${dotaReleaseCheck(
-        release_date
-      )}</p>
-  </li>`
+    <p class="movies__card-genres">${genres} | ${dotaReleaseCheck(
+          release_date
+        )}</p>
+  </li>`}
     )
     .join('');
-  return galleryConteiner.insertAdjacentHTML('beforeend', markup);
 };
 
 // Функція очистки галереї
+export const clearMarkup = () => {
+  galleryConteiner.innerHTML = '';
+};
 
-// const clearMarkup = () => {
-//   galleryConteiner.innerHTML = '';
-// };
+// Функція вімалювання галереї
+export const insertMarkup = markup => {
+  return galleryConteiner.insertAdjacentHTML('beforeend', markup);
+};
 
 // функцшї перевірки даних що надходять в запросі
 
