@@ -814,6 +814,7 @@ header.header-library .layout .logo h1 {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
+  margin: 0 auto;
   line-height: 1.19;
   align-items: center;
   text-align: center;
@@ -1495,26 +1496,25 @@ body.no-scroll {
 }
 
 .tui-pagination {
-  padding-bottom: 40px;
+  padding: 40px 0 40px;
 }
 @media screen and (min-width: 768px) {
   .tui-pagination {
-    padding-bottom: 60px;
+    padding: 60px 0 60px;
   }
 }
 @media screen and (min-width: 1280px) {
   .tui-pagination {
-    padding-bottom: 60px;
+    padding: 60px 0 60px;
   }
 }
 
 .tui-pagination {
-  height: 28px;
-  margin: 14px 0 12px;
-  margin-bottom: 60px;
+  margin: 0 auto;
   line-height: normal;
   text-align: center;
   font-size: 0;
+  background-color: #f0f0f0;
 }
 
 .tui-pagination .tui-page-btn {
@@ -1526,6 +1526,7 @@ body.no-scroll {
   padding: 13px 13px 11px 13px;
   margin-left: 0;
   color: #000000;
+  fill: #f7f7f7;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 900;

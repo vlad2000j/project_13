@@ -44,13 +44,11 @@
   }
 }
 
-
-
 .copyright {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-
+  margin: 0 auto;
   line-height: 1.19;
   align-items: center;
   text-align: center;
@@ -82,7 +80,6 @@
 .copyright_part1,
 .copyright_part2 {
   display: inline-block;
-
 }
 
 .copyright_part1 {
@@ -106,8 +103,6 @@
   margin-right: 10px;
 }
 
-
-
 .developers {
-    color: inherit;
+  color: inherit;
 }

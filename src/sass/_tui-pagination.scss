@@ -73,24 +73,26 @@
 
 
 .tui-pagination {
-  padding-bottom: 40px;
+  padding: 40px 0 40px;
 
   @media screen and (min-width: $tablet) {
-    padding-bottom: 60px;
+    padding: 60px 0 60px;
   }
 
   @media screen and (min-width: $desktop) {
-    padding-bottom: 60px;
+    // padding-bottom: 60px;
+    padding: 60px 0 60px;
   }
 }
 
 .tui-pagination {
-  height: 28px;
-  margin: 14px 0 12px;
-  margin-bottom: 60px;
+  // height: 28px;
+  margin: 0 auto;
+  // margin-bottom: 60px;
   line-height: normal;
   text-align: center;
   font-size: 0;
+  background-color: #f0f0f0;
 }
 
 .tui-pagination .tui-page-btn {
@@ -102,6 +104,7 @@
   padding: 13px 13px 11px 13px;
   margin-left: 0;
   color: #000000;
+  fill: #f7f7f7;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 900;
