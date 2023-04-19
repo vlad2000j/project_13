@@ -19,6 +19,8 @@
 // console.log(myQueue.getFirstItemFromQueue()); // Показує перший елемент в черзі
 
 // ------------------- Реалізація класу QueueService --------------------------
+// 
+
 
 const QUEUE = 'QueueFilms';
 export default class QueueService {
