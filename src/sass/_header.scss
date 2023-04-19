@@ -1,48 +1,39 @@
 header {
     @include box;
     background-color: $background-color-main;
-    // @media screen and (min-width: 320px) {
-    //     // width: 320px;
-    //     padding: 20px 20px 0px 20px;
-    //   }
+    @media screen and (min-width: 320px) {
+        // width: 320px;
+        padding: 20px 20px 0px 20px;
+      }
     
-    //   // tablet screen 768px//
-    //   @media screen and (min-width: 768px) {
-    //     // width: 768px;
-    //     padding: 32px 32px 0px 32px;
-    //   }
+      // tablet screen 768px//
+      @media screen and (min-width: 768px) {
+        // width: 768px;
+        padding: 32px 32px 0px 32px;
+      }
     
-    //   //decktop screen 1280px//
-    //   @media screen and (min-width: 1280px) {
-    //     // width: 1280px;
-    //     padding: 32px 32px 0px 32px;
-    //   }
+      //decktop screen 1280px//
+      @media screen and (min-width: 1280px) {
+        // width: 1280px;
+        padding: 32px 32px 0px 32px;
+      }
     .layout {
-        position: relative;
         display: block;
 		overflow: hidden;
         border-radius: 15px;
-        margin-left: auto;
-            margin-right: auto;
         @media screen and (min-width: 320px) {
             // margin: 0 20px;
-            width: 320px;
-            padding: 20px 20px 0px 20px;
             height: 460px;
           }
         
           // tablet screen 768px
         @media screen and (min-width: 768px) {
-            padding: 32px 32px 0px 32px;
             // margin: 0 32px;
-            width: 768px;
             height: 222px;
         }
 
         @media screen and (min-width: 1280px) {
-            padding: 32px 32px 0px 32px;
             // margin: 0 32px;
-            width: 1280px;
             height: 316px;
           }
         img.hr_img {
@@ -341,7 +332,7 @@ header {
         }
         .logo-main {
             position: absolute;
-			// width: 100%;
+			width: 100%;
 			z-index: 2;
             @include flex-row;
             justify-content: flex-start;
@@ -350,19 +341,19 @@ header {
 
             @media screen and (min-width: 320px) {
                 gap: 8px;
-                top: 402px;
+                top: 422px;
 			    left: 65px;
             }
             
             @media screen and (min-width: 768px) {
                 gap: 8px;
-                top: 161px;
+                top: 191px;
 			    left: 48px;
             }
             
             @media screen and (min-width: 1280px) {
                 gap: 16px;
-                bottom: 0px;
+                top: 241px;
 			    left: 64px;
             }
 
@@ -397,23 +388,23 @@ header {
 
                 @media screen and (min-width: 320px) {
                     font-size: 32px;
-                    line-height: 1.17;
+                    line-height: 37.5px; 
                 }
                 
                 @media screen and (min-width: 768px) {
                     font-size: 40px;
-                    line-height: 1.17;
+                    line-height: 46.88px; 
                 }
                 
                 @media screen and (min-width: 1280px) {
                     font-size: 64px;
-                    line-height: 1.17; 
+                    line-height: 75px; 
                 }
             }
         }
         .logo-library {
             position: absolute;
-			// width: 100%;
+			width: 100%;
 			z-index: 2;
             @include flex-row;
             justify-content: flex-start;
@@ -422,19 +413,19 @@ header {
 
             @media screen and (min-width: 320px) {
                 gap: 8px;
-                top: 368px;
+                top: 348px;
 			    left: 65px;
             }
             
             @media screen and (min-width: 768px) {
                 gap: 8px;
-                top: 161px;
+                top: 191px;
 			    left: 48px;
             }
             
             @media screen and (min-width: 1280px) {
                 gap: 16px;
-                bottom: 0px;
+                top: 241px;
 			    left: 64px;
             }
 
