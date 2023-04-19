@@ -36,7 +36,7 @@ buttons.queueButton.addEventListener('click', async event => {
   toggleActiveButton(event);
   buttons.watchedButton.classList.remove(active);
   clearMarkup();
-  const moviesInQueue = Array.from(new QueueService().getAllQueue());
+  const moviesInQueue = Array.from(new QueueService().getAllQueue());  ///////
 
   let moviesData = await getMoviesById(moviesInQueue);
 
