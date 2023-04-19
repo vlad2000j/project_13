@@ -36,38 +36,32 @@ header {
   height: auto;
   background-color: #f0f0f0;
 }
-@media screen and (min-width: 320px) {
-  header {
-    padding: 20px 20px 0px 20px;
-  }
-}
-@media screen and (min-width: 768px) {
-  header {
-    padding: 32px 32px 0px 32px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  header {
-    padding: 32px 32px 0px 32px;
-  }
-}
 header .layout {
+  position: relative;
   display: block;
   overflow: hidden;
   border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media screen and (min-width: 320px) {
   header .layout {
+    width: 320px;
+    padding: 20px 20px 0px 20px;
     height: 460px;
   }
 }
 @media screen and (min-width: 768px) {
   header .layout {
+    padding: 32px 32px 0px 32px;
+    width: 768px;
     height: 222px;
   }
 }
 @media screen and (min-width: 1280px) {
   header .layout {
+    padding: 32px 32px 0px 32px;
+    width: 1280px;
     height: 316px;
   }
 }
@@ -390,7 +384,6 @@ header .layout .library-buttons .header-button-active {
 }
 header .layout .logo-main {
   position: absolute;
-  width: 100%;
   z-index: 2;
   display: flex;
   flex-direction: row;
@@ -400,21 +393,21 @@ header .layout .logo-main {
 @media screen and (min-width: 320px) {
   header .layout .logo-main {
     gap: 8px;
-    top: 422px;
+    top: 402px;
     left: 65px;
   }
 }
 @media screen and (min-width: 768px) {
   header .layout .logo-main {
     gap: 8px;
-    top: 191px;
+    top: 161px;
     left: 48px;
   }
 }
 @media screen and (min-width: 1280px) {
   header .layout .logo-main {
     gap: 16px;
-    top: 241px;
+    bottom: 0px;
     left: 64px;
   }
 }
@@ -453,24 +446,23 @@ header .layout .logo-main h1 {
 @media screen and (min-width: 320px) {
   header .layout .logo-main h1 {
     font-size: 32px;
-    line-height: 37.5px;
+    line-height: 1.17;
   }
 }
 @media screen and (min-width: 768px) {
   header .layout .logo-main h1 {
     font-size: 40px;
-    line-height: 46.88px;
+    line-height: 1.17;
   }
 }
 @media screen and (min-width: 1280px) {
   header .layout .logo-main h1 {
     font-size: 64px;
-    line-height: 75px;
+    line-height: 1.17;
   }
 }
 header .layout .logo-library {
   position: absolute;
-  width: 100%;
   z-index: 2;
   display: flex;
   flex-direction: row;
@@ -480,21 +472,21 @@ header .layout .logo-library {
 @media screen and (min-width: 320px) {
   header .layout .logo-library {
     gap: 8px;
-    top: 348px;
+    top: 368px;
     left: 65px;
   }
 }
 @media screen and (min-width: 768px) {
   header .layout .logo-library {
     gap: 8px;
-    top: 191px;
+    top: 161px;
     left: 48px;
   }
 }
 @media screen and (min-width: 1280px) {
   header .layout .logo-library {
     gap: 16px;
-    top: 241px;
+    bottom: 0px;
     left: 64px;
   }
 }
