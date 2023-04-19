@@ -276,9 +276,13 @@ header {
             .library-buttons {
                 position: absolute;
                 z-index: 2;
+
+            .header__nav-link {
+
                 @include flex-row;
                 flex-wrap: wrap;
                 align-items: center;
+
                 justify-content: flex-end;
     
                 @media screen and (min-width: $mobile) {
@@ -286,6 +290,23 @@ header {
                     right: 64px;
                     gap: 8px;
                     width: 100%;
+
+                color: #FFFFFF;
+                border-radius: 100px;
+                background-color: $background-color1;
+                color: $text-color1;
+                    text-transform: uppercase;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 14px;
+                    cursor: pointer;
+       
+
+                @media screen and (min-width: 320px) {
+                    padding: 10px 26px;
+
                 }
                 
                 @media screen and (min-width: $tablet) {
@@ -295,6 +316,7 @@ header {
                     width: 30%;
                 }
                 
+
                 @media screen and (min-width: $desktop) {
                     top: 16px;
                     right: 64px;
@@ -328,6 +350,37 @@ header {
                     @media screen and (min-width: $desktop) {
                         padding: 14px 32px;
                     }
+
+                @media screen and (min-width: 1280px) {
+                    padding: 14px 32px;
+                } 
+                a {
+                    
+                    color: $text-color1;
+                   
+                }
+                
+            }
+            .library {
+                @include flex-row;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                border-radius: 100px;
+                background-color: $background-color2;
+                cursor: pointer;
+                color: $text-color2;
+                text-transform: uppercase;
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 14px;
+                
+
+                @media screen and (min-width: 320px) {
+                    padding: 10px 22px;
+
                 }
     
                 .queue {
@@ -495,3 +548,4 @@ header {
             }
     }
 }
+

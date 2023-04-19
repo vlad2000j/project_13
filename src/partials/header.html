@@ -5,6 +5,7 @@
           src="./images/header_background_image_red.png"
           alt="header_bg_img"
         />
+
         <img
           class="hr_img_mob"
           src="./images/header_mob_background_image_red.png"
@@ -47,5 +48,35 @@
           </a>
           <h1>Filmoteka</h1>
         </div>
+        <button type="submit">
+          <img src="./images/search_ico.png" alt="#" />
+        </button>
+      </form>
+      <div class="home">
+        <a href="/" class="header__nav-link active">Home</a>
+      </div>
+      <div>
+        <button class="library" data-action="library">My Library</button>
+      </div>
+    </div>
+    <div class="library-buttons">
+      <!--TO DO: змінити стиль кнопок і т.д, залишити атрибути data-action!!! -->
+      <div>
+        <button type="button" data-action="watched" class="header-movies-buttons watched">
+          Watched
+        </button>
+      </div>
+      <div>
+        <button type="button" data-action="queue" class="header-movies-buttons queue">
+          Queue
+        </button>
+      </div>
+    </div>
+    <div class="logo logo-main" id="logo">
+      <a href="/">
+        <img src="./images/header_logo.png" alt="#" />
+      </a>
+      <h1>Filmoteka</h1>
+    </div>
   </div>
 </header>
