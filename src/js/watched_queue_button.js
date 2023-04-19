@@ -69,7 +69,7 @@ buttons.watchedButton.addEventListener('click', async event => {
 });
 
 //Підсвічує кнопку, на яку натиснув користувач
-toggleActiveButton = event => {
+const toggleActiveButton = event => {
   if (event.target.classList.contains(active))
     event.target.classList.remove(active);
   else event.target.classList.add(active);
