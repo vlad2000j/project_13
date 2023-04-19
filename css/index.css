@@ -34,7 +34,7 @@ header {
   width: 100%;
   box-sizing: border-box;
   height: auto;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
 }
 @media screen and (min-width: 320px) {
   header {
@@ -84,7 +84,7 @@ header .layout {
 @media screen and (min-width: 768px) {
   header .layout img.hr_img {
     display: block;
-    width: 100%;
+    width: 704px;
     height: 100%;
     position: relative;
     z-index: 1;
@@ -93,7 +93,7 @@ header .layout {
 @media screen and (min-width: 1280px) {
   header .layout img.hr_img {
     display: block;
-    width: 100%;
+    width: 1216px;
     height: 100%;
     position: relative;
     z-index: 1;
@@ -102,7 +102,7 @@ header .layout {
 @media screen and (min-width: 320px) {
   header .layout img.hr_img_mob {
     display: block;
-    width: 100%;
+    width: 280px;
     position: relative;
     z-index: 1;
   }
@@ -119,7 +119,6 @@ header .layout {
 }
 header .layout .nav {
   position: absolute;
-  width: 100%;
   z-index: 2;
   display: flex;
   flex-direction: row;
@@ -129,6 +128,7 @@ header .layout .nav {
 }
 @media screen and (min-width: 320px) {
   header .layout .nav {
+    width: 100%;
     top: 34px;
     left: 34px;
     gap: 8px;
@@ -136,6 +136,7 @@ header .layout .nav {
 }
 @media screen and (min-width: 768px) {
   header .layout .nav {
+    width: 50%;
     top: 48px;
     left: 48px;
     gap: 4px;
@@ -143,6 +144,7 @@ header .layout .nav {
 }
 @media screen and (min-width: 1280px) {
   header .layout .nav {
+    width: 50%;
     top: 48px;
     left: 64px;
     gap: 8px;
@@ -159,7 +161,7 @@ header .layout .nav .search-form {
 @media screen and (min-width: 320px) {
   header .layout .nav .search-form {
     padding: 10px 14px;
-    width: 85%;
+    width: 252px;
     height: 34px;
     order: 1;
   }
@@ -238,31 +240,14 @@ header .layout .nav .search-form button[type=submit] img {
     height: 16px;
   }
 }
-header .layout .nav .home {
+header .layout .nav .header__nav-link {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: #FFFFFF;
   border-radius: 100px;
   background-color: #000;
-}
-@media screen and (min-width: 320px) {
-  header .layout .nav .home {
-    padding: 10px 26px;
-  }
-}
-@media screen and (min-width: 768px) {
-  header .layout .nav .home {
-    padding: 12px 24px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  header .layout .nav .home {
-    padding: 14px 32px;
-  }
-}
-header .layout .nav .home a {
-  cursor: pointer;
   color: #fff;
   text-transform: uppercase;
   font-family: "Roboto";
@@ -270,31 +255,34 @@ header .layout .nav .home a {
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
+  cursor: pointer;
+}
+@media screen and (min-width: 320px) {
+  header .layout .nav .header__nav-link {
+    padding: 10px 26px;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .layout .nav .header__nav-link {
+    padding: 12px 24px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header .layout .nav .header__nav-link {
+    padding: 14px 32px;
+  }
+}
+header .layout .nav .header__nav-link a {
+  color: #fff;
 }
 header .layout .nav .library {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border: none;
   border-radius: 100px;
   background-color: #fff;
-}
-@media screen and (min-width: 320px) {
-  header .layout .nav .library {
-    padding: 10px 22px;
-  }
-}
-@media screen and (min-width: 768px) {
-  header .layout .nav .library {
-    padding: 12px 20px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  header .layout .nav .library {
-    padding: 14px 24px;
-  }
-}
-header .layout .nav .library a {
   cursor: pointer;
   color: #000;
   text-transform: uppercase;
@@ -304,35 +292,103 @@ header .layout .nav .library a {
   font-size: 12px;
   line-height: 14px;
 }
-header .layout .nav .header-movies-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100px;
-  background-color: #fff;
-  visibility: hidden;
-}
 @media screen and (min-width: 320px) {
-  header .layout .nav .header-movies-buttons {
+  header .layout .nav .library {
     padding: 10px 22px;
   }
 }
 @media screen and (min-width: 768px) {
-  header .layout .nav .header-movies-buttons {
+  header .layout .nav .library {
     padding: 12px 20px;
   }
 }
 @media screen and (min-width: 1280px) {
-  header .layout .nav .header-movies-buttons {
+  header .layout .nav .library {
     padding: 14px 24px;
   }
 }
-header .layout .nav .header-button-active {
-  background-color: #640606;
-  color: white;
+header .layout .library-buttons {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
 }
-header .layout .logo {
+@media screen and (min-width: 320px) {
+  header .layout .library-buttons {
+    top: 422px;
+    right: 64px;
+    gap: 8px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .layout .library-buttons {
+    top: 48px;
+    right: 48px;
+    gap: 4px;
+    width: 30%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header .layout .library-buttons {
+    top: 48px;
+    right: 64px;
+    gap: 8px;
+    width: 30%;
+  }
+}
+header .layout .library-buttons .header-movies-buttons {
+  border: none;
+  border-radius: 100px;
+  background-color: #fff;
+  visibility: hidden;
+  cursor: pointer;
+  color: #000;
+  text-transform: uppercase;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+}
+@media screen and (min-width: 320px) {
+  header .layout .library-buttons .watched {
+    padding: 10px 26px;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .layout .library-buttons .watched {
+    padding: 12px 24px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header .layout .library-buttons .watched {
+    padding: 14px 32px;
+  }
+}
+@media screen and (min-width: 320px) {
+  header .layout .library-buttons .queue {
+    padding: 10px 22px;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .layout .library-buttons .queue {
+    padding: 12px 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header .layout .library-buttons .queue {
+    padding: 14px 24px;
+  }
+}
+header .layout .library-buttons .header-button-active {
+  background-color: #640606;
+  color: #fff;
+}
+header .layout .logo-main {
   position: absolute;
   width: 100%;
   z-index: 2;
@@ -342,51 +398,51 @@ header .layout .logo {
   align-items: center;
 }
 @media screen and (min-width: 320px) {
-  header .layout .logo {
+  header .layout .logo-main {
     gap: 8px;
     top: 422px;
     left: 65px;
   }
 }
 @media screen and (min-width: 768px) {
-  header .layout .logo {
+  header .layout .logo-main {
     gap: 8px;
     top: 191px;
     left: 48px;
   }
 }
 @media screen and (min-width: 1280px) {
-  header .layout .logo {
+  header .layout .logo-main {
     gap: 16px;
     top: 241px;
     left: 64px;
   }
 }
-header .layout .logo a {
+header .layout .logo-main a {
   display: block;
   overflow: hidden;
   cursor: pointer;
 }
-header .layout .logo a img {
+header .layout .logo-main a img {
   display: block;
   overflow: hidden;
 }
 @media screen and (min-width: 320px) {
-  header .layout .logo a img {
+  header .layout .logo-main a img {
     height: 32px;
   }
 }
 @media screen and (min-width: 768px) {
-  header .layout .logo a img {
+  header .layout .logo-main a img {
     height: 40px;
   }
 }
 @media screen and (min-width: 1280px) {
-  header .layout .logo a img {
+  header .layout .logo-main a img {
     height: 59px;
   }
 }
-header .layout .logo h1 {
+header .layout .logo-main h1 {
   display: block;
   overflow: hidden;
   font-family: "Roboto";
@@ -395,19 +451,99 @@ header .layout .logo h1 {
   color: #fff;
 }
 @media screen and (min-width: 320px) {
-  header .layout .logo h1 {
+  header .layout .logo-main h1 {
     font-size: 32px;
     line-height: 37.5px;
   }
 }
 @media screen and (min-width: 768px) {
-  header .layout .logo h1 {
+  header .layout .logo-main h1 {
     font-size: 40px;
     line-height: 46.88px;
   }
 }
 @media screen and (min-width: 1280px) {
-  header .layout .logo h1 {
+  header .layout .logo-main h1 {
+    font-size: 64px;
+    line-height: 75px;
+  }
+}
+header .layout .logo-library {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media screen and (min-width: 320px) {
+  header .layout .logo-library {
+    gap: 8px;
+    top: 348px;
+    left: 65px;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .layout .logo-library {
+    gap: 8px;
+    top: 191px;
+    left: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header .layout .logo-library {
+    gap: 16px;
+    top: 241px;
+    left: 64px;
+  }
+}
+header .layout .logo-library a {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+}
+header .layout .logo-library a img {
+  display: block;
+  overflow: hidden;
+}
+@media screen and (min-width: 320px) {
+  header .layout .logo-library a img {
+    height: 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .layout .logo-library a img {
+    height: 40px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header .layout .logo-library a img {
+    height: 59px;
+  }
+}
+header .layout .logo-library h1 {
+  display: block;
+  overflow: hidden;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  color: #fff;
+}
+@media screen and (min-width: 320px) {
+  header .layout .logo-library h1 {
+    font-size: 32px;
+    line-height: 37.5px;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .layout .logo-library h1 {
+    font-size: 40px;
+    line-height: 46.88px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header .layout .logo-library h1 {
     font-size: 64px;
     line-height: 75px;
   }
@@ -995,6 +1131,35 @@ header.header-library .layout .logo h1 {
   }
 }
 
+.is-displayed {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  background: conic-gradient(red, transparent);
+  -webkit-animation: rotating 1s linear infinite;
+          animation: rotating 1s linear infinite;
+}
+
+.is-displayed::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  background: #f0f0f0;
+  top: 10px;
+  left: 10px;
+}
+
+@-webkit-keyframes rotating {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
 body.no-scroll {
   overflow: hidden;
 }
@@ -1486,6 +1651,222 @@ body.no-scroll {
 .hover:hover, .hover:focus {
   background-color: #ff001b;
   color: #ffffff;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.modal::-webkit-scrollbar {
+  width: 12px;
+}
+
+.backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 250ms 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  overflow-y: scroll;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.modal {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 550px;
+  padding: 5px;
+  padding-top: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2509803922);
+  border-radius: 30px;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .modal {
+    padding-top: 150px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 700px;
+    height: 700px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .modal {
+    width: 848px;
+    height: 700px;
+    border-radius: 2%;
+  }
+}
+
+.modal-title {
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  .modal-title {
+    font-size: 14px;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: initial;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-right: 8px;
+  transform: scale(1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close:hover, .modal-close:focus {
+  background-color: #B92F2C;
+  border-color: #B92F2C;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px 20px;
+}
+@media screen and (min-width: 768px) {
+  .card {
+    padding: 25px 40px;
+  }
+}
+
+.card__item {
+  margin-bottom: 30px;
+}
+
+.card__item:last-child {
+  margin-bottom: 0;
+}
+
+.card__item {
+  width: calc((100% - 30px) / 2);
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .card__item {
+    width: calc((100% - 60px) / 3);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .card__item {
+    width: calc((100% - 90px) / 4);
+  }
+}
+
+.card .card__item:hover,
+.card .card__item:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: box-shadow 250ms 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card__title {
+  color: #000;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+@media screen and (min-width: 768px) {
+  .card__title {
+    font-size: 16px;
+  }
+}
+
+.card__desc {
+  color: #8c8c8c;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+}
+@media screen and (min-width: 768px) {
+  .card__desc {
+    font-size: 14px;
+  }
+}
+
+.card__link {
+  text-decoration: none;
+}
+
+.card__border {
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  text-align: center;
+  padding: 5px;
+}
+
+.card__overflow {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__overlay {
+  display: none;
+}
+
+.card__item .card__link:hover .card__overlay,
+.card__item .card__link:focus .card__overlay {
+  transform: translateY(0);
+}
+
+.card__text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.card-photo {
+  text-align: center;
+  width: 95px;
+  height: 95px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .card-photo {
+    width: 170px;
+    height: 170px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .card-photo {
+    width: 145px;
+    height: 145px;
+  }
 }
 
 .tui-pagination * {
