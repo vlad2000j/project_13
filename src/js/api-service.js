@@ -55,7 +55,7 @@ export default class ApiService {
           vote_average,
           vote_count,
         } = obj;
-
+        obj.total_pages = response.data.total_pages;
         const poster_url = poster_path
           ? `https://image.tmdb.org/t/p/original/${poster_path}`
           : 'http://surl.li/glnug';

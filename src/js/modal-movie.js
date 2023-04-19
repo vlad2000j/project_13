@@ -36,7 +36,7 @@ async function searchIdforMovie(e) {
     refs.movieModal.appendChild(displayLoading());
     const response = await fetchById(idMovie);
     hideLoading();
-    
+
     createMarkupMovieCardInModal(response);
   }
   if (
@@ -295,20 +295,26 @@ function onAddToWatched(e) {
 }
 
 // Angela Додати це замість onAddToQueue() яка в цьому файлі
+function addToQueue(filmId) {
+  const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
+  if (parsedQueueFilms && parsedQueueFilms.includes(filmId)) {
+    return false;
+  } else {
+    const queueFilms = [filmId, ...(parsedQueueFilms || [])];
+    localStorage.setItem('QueueFilms', JSON.stringify(queueFilms));
+    return true;
+  }
+}
+
 function onAddToQueue() {
   const filmIdToLS = document.querySelector(`[data-add="queue"]`).dataset.id;
-  const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
-
-  if (parsedQueueFilms.includes(filmIdToLS)) {
-    return Notiflix.Report.failure(
+  const added = addToQueue(filmIdToLS);
+  if (added) {
+    Notiflix.Report.success('', 'Film added to QUEUE');
+  } else {
+    Notiflix.Report.failure(
       '',
       'The movie has already been added to the queue!'
     );
-  } else {
-    localStorage.setItem(
-      'QueueFilms',
-      JSON.stringify([filmIdToLS, ...parsedQueueFilms])
-    );
-    Notiflix.Report.success('', 'Film added to QUEUE');
   }
 }
